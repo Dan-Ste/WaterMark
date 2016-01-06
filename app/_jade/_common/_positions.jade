@@ -4,11 +4,15 @@
     li.settings-position-list__item
       .settings-position-map
         ul.settings-position-map-list
-          - for (var i = 0; i < 9; i++)
-          if i !== 1
-            li.settings-position-map-list__item
-          else
-            li.settings-position-map-list__item.settings-position-map-list__item__active
+          - for (var i = 0; i < 8; i++)
+            if i !== 1
+              li.settings-position-map-list__item
+                label.settings-position-map__label
+                  input( type = "radio" name = 'mark-position').settings-position-map__label__unit
+            else
+              li.settings-position-map-list__item
+                label.settings-position-map__label
+                  input( type = "radio" checked="checked" name = 'mark-position').settings-position-map__label__unit
     li.settings-position-list__item
       .settings-position-control
         ul.settings-position-control-list

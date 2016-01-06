@@ -12,7 +12,7 @@ var jadePath = './app/_jade/index.jade',
   scssPathAll = './app/_scss/**/*.scss';
 
 //-----------On Jade------------//
-gulp.task('jade', function() {
+gulp.task('jade', function () {
   var YOUR_LOCALS = {};
 
   gulp.src(jadePath)
@@ -24,7 +24,7 @@ gulp.task('jade', function() {
     .pipe(gulp.dest('./app/'))
 });
 //-----------On Scss------------//
-gulp.task('sass', function() {
+gulp.task('sass', function () {
   return gulp.src(scssPath)
     .pipe(sourcemaps.init())
     .pipe(plumber())
@@ -32,8 +32,9 @@ gulp.task('sass', function() {
       style: 'expanded',
       includePaths: [
         './app/bower/normalize-scss/sass/',
-        './app/bower/support-for/sass/' ],
-      errLogToConsole: true }))
+        './app/bower/support-for/sass/'],
+      errLogToConsole: true
+    }))
 
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./app/css/'));
@@ -41,16 +42,16 @@ gulp.task('sass', function() {
 });
 
 //-----------Load Server------------//
-gulp.task('server', function() {
+gulp.task('server', function () {
   browserSync({
-    port: 9000,
+    port: 8000,
     server: {
       baseDir: "app"
     }
   });
 });
 //-----------watch files------------//
-gulp.task('watch', function() {
+gulp.task('watch', function () {
   gulp.watch([
     'app/*.html',
     'app/js/**/*.js',
@@ -58,12 +59,12 @@ gulp.task('watch', function() {
   ]).on('change', browserSync.reload);
 });
 
-gulp.task('sass:watch', function() {
+gulp.task('sass:watch', function () {
   gulp.watch(scssPathAll, ['sass']);
 });
 
-gulp.task('jade:watch', function() {
+gulp.task('jade:watch', function () {
   gulp.watch(jadePathAll, ['jade']);
 });
 
-gulp.task('default',['server', 'watch', 'sass:watch', 'jade:watch']);
+gulp.task('default', ['server', 'watch', 'sass:watch', 'jade:watch']);
