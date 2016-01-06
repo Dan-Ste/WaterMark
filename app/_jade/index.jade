@@ -2,44 +2,47 @@ include _common/_mixins
 
 doctype html
 html(lang='ru')
-    head
-        meta(charset='UTF-8')
-        meta(http-equiv='X-UA-Compatible', content="IE=edge,chrome=1")
-        meta(name='viewport' content='width=device-width')
-        link(rel="stylesheet" href="/css/main.css")
-        title WaterMark
-    body
-        .wrapper
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content="IE=edge,chrome=1")
+    meta(name='viewport' content='width=device-width')
+    link(rel="stylesheet" href="/css/main.css")
+    title WaterMark
+  body
+    .wrapper
+      //блок кнопок слева
+      include _common/_left-buttons
 
-            include _common/_left-buttons
+      .page-content
+        .container
+          .veiwport
+            //блок просмотра
+            .veiwport-title
+              h1.title Генератор водяных знаков
+            .veiwport-inner
+          .settings
+            //блок настройки
+            .settings-title
+              h2.title Настройки
+            ul.settings-list
+              li.settings-item
+                //блок инпутов
+                include _common/_inputs
 
-            .page-content
-                .container
-                    .veiwport
-                        .veiwport-title
-                            h1.title Генератор водяных знаков
-                        .veiwport-inner
-                    .settings
-                        .settings-title
-                            h2.title Настройки
-                        ul.settings-list
-                            li.settings-item
+              li.settings-item
+                //блок ручной настройки положения марки
+                include _common/_positions
 
-                                include _common/_inputs
+              li.settings-item
+                //блок настройки прозрачности марки
+                include _common/_opacity
 
-                            li.settings-item
+              li.settings-item
+                //блок кнопок
+                .settings-buttons
+                  button.settings-button.settings-button__reset Сброс
+                  button.settings-button.settings-button__download Скачать
+      footer.footer
+        .copiright © 2016. Это сайт LOFTprojectTEAM , пожалуйста, не копируйте и не воруйте его
 
-                                include _common/_positions
-
-                            li.settings-item
-
-                                include _common/_opacity
-
-                            li.settings-item
-                                .settings-buttons
-                                    button.settings-button.settings-button__reset Сброс
-                                    button.settings-button.settings-button__download Скачать
-            footer.footer
-                .copiright © 2016. Это сайт LOFTprojectTEAM , пожалуйста, не копируйте и не воруйте его
-
-        script(src='bower/jquery/dist/jquery.min.js')
+    script(src='bower/jquery/dist/jquery.min.js')

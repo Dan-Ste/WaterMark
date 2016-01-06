@@ -385,14 +385,6 @@ th {
   font-weight: normal;
   font-style: normal; }
 
-@font-face {
-  font-family: SEGOEUIL;
-  src: url("../fonts/SEGOEUIL.eot");
-  src: url("../fonts/SEGOEUIL.eot?#iefix") format("embedded-opentype"), url("../fonts/SEGOEUIL.woff") format("woff"), url("../fonts/SEGOEUIL.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
-/* --------- sections --------- */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -402,5 +394,7 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0; }
+
+/* --------- sections --------- */
 
 /*# sourceMappingURL=main.css.map */
