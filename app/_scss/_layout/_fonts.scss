@@ -1,0 +1,25 @@
+$myfonts: roboto-medium, roboto-light, firasans-light;
+
+@each $item in $myfonts {
+	@font-face {
+		font-family: #{$item};
+		src: url('../fonts/#{$item}.eot');
+		src: url('../fonts/#{$item}.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/#{$item}.woff2') format('woff2'),
+		url('../fonts/#{$item}.woff') format('woff'),
+		url('../fonts/#{$item}.ttf') format('truetype'),
+		url('../fonts/#{$item}.svg') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+}
+
+@font-face {
+	font-family: SEGOEUIL;
+	src: url('../fonts/SEGOEUIL.eot');
+	src: url('../fonts/SEGOEUIL.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/SEGOEUIL.woff') format('woff'),
+	url('../fonts/SEGOEUIL.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}

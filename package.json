@@ -1,0 +1,12 @@
+{
+  "name": "WaterMark",
+  "devDependencies": {
+    "browser-sync": "^2.11.0",
+    "gulp": "^3.9.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sass": "^2.1.1",
+    "gulp-sourcemaps": "^1.6.0"
+  }
+}
