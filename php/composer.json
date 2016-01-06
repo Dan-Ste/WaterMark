@@ -1,0 +1,12 @@
+{
+    "name": "ls_work_yeam/watermark",
+    "authors": [
+        {
+            "name": "Muxacuk",
+            "email": "m-izmaylov@inbox.ru"
+        }
+    ],
+    "require": {
+    	"imagine/imagine": "~0.5.0"
+    }
+}
