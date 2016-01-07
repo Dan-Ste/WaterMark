@@ -1,3 +1,67 @@
-.settings-opacity__input{
-  margin-bottom: 25px;
+.settings-opacity__wrap{
+  position: relative;
+  padding-top: 9px;
 }
+.settings-opacity{
+  margin-bottom: 6px;
+}
+
+.settings-opacity__input {
+  -webkit-appearance: none;
+  width: 100%;
+  background: none;
+  height: 30px;
+  &:focus {
+    outline: none;
+  }
+  &::-webkit-slider-runnable-track {
+    @include inputRangeTrack;
+  }
+  &::-webkit-slider-thumb {
+    @include inputSliderThumb;
+    -webkit-appearance: none;
+    margin-top: -9px;
+  }
+  &:focus::-webkit-slider-runnable-track {
+    background: $ColorRange;
+  }
+  &::-moz-range-track {
+    @include inputRangeTrack;
+
+  }
+  &::-moz-range-thumb {
+    @include inputSliderThumb;
+  }
+  &::-ms-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    padding: 12px 0;
+    background: transparent;
+    box-shadow: none;
+    border-color: transparent;
+    color: transparent;
+  }
+  &::-ms-fill-lower {
+    background: $ColorRange;
+    border: none;
+    border-radius: 2px;
+  }
+  &::-ms-fill-upper {
+    background: $ColorRange;
+    border: none;
+    border-radius: 2px;
+  }
+  &::-ms-thumb {
+    @include inputSliderThumb;
+  }
+  &:focus::-ms-fill-lower {
+    background: $ColorRange;
+  }
+  &:focus::-ms-fill-upper {
+    background: $ColorRange;
+  }
+}
+
+
+

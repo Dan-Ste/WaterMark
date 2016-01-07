@@ -7,6 +7,7 @@
 }
 .input-text{
   width: 180px;
+  height: 27px;
   border: 1px solid #9FB2C0;
   border-right: none;
   border-radius: 3px 0 0 3px;
@@ -14,10 +15,12 @@
   background: #F2F1F6;
 }
 .input-icon{
+  content: '';
   cursor: pointer;
   z-index: 120;
   width: 40px;
-  height: 28px;
+  display: inline-block;
+  height: 27px;
   background: #F97E77;
   position: absolute;
   border-radius: 0 3px 3px 0;
@@ -25,5 +28,5 @@
 .settings-inputs-block{
   overflow: hidden;
   position: relative;
-  margin-bottom: 19px;
+  margin-bottom: 21px;
 }
