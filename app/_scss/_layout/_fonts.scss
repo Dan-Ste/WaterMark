@@ -1,4 +1,4 @@
-//подключение шрифтов
+//подключаю шрифты
 $myfonts: roboto-medium, roboto-light, firasans-light;
 
 @each $item in $myfonts {
@@ -13,4 +13,14 @@ $myfonts: roboto-medium, roboto-light, firasans-light;
     font-weight: normal;
     font-style: normal;
   }
+}
+
+@font-face {
+  font-family: SEGOEUIL;
+  src: url('../fonts/SEGOEUIL.eot');
+  src: url('../fonts/SEGOEUIL.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/SEGOEUIL.woff') format('woff'),
+  url('../fonts/SEGOEUIL.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }

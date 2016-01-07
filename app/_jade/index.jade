@@ -40,10 +40,11 @@ html(lang='ru')
               li.settings-item
                 //блок кнопок
                 .settings-buttons
-                  button.settings-button.settings-button__reset Сброс
-                  button.settings-button.settings-button__download Скачать
+                  .settings-wrapper-buttons
+                    button.settings-button Сброс
+                    button.settings-button.leftpos.settings-button__active Скачать
       footer.footer
         .footer-inner
-          .copiright © 2016. Это сайт LOFTprojectTEAM , пожалуйста, не копируйте и не воруйте его
+          .copyright © 2016. Это сайт LOFTprojectTEAM , пожалуйста, не копируйте и не воруйте его
 
     script(src='bower/jquery/dist/jquery.min.js')

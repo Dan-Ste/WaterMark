@@ -43,122 +43,130 @@
 							<li class="settings-item">
 								<!--блок инпутов-->
 								<div class="settings-inputs">
-									<ul class="settings-inputs-list">
-										<li class="settings-inputs-list__item">
-											<div class="settings-title">Исходное изображение</div>
-											<input type="text" name="file_back_name" readonly="" placeholder="Загрузите изображение" class="input-text">
-											<ladel class="input-icon">
-												<input type="file" name="file_back" class="input-hide">
-											</ladel>
-										</li>
-										<li class="settings-inputs-list__item">
-											<div class="settings-title">Водянной знак</div>
-											<input type="text" name="file_mark_name" readonly="" placeholder="Загрузите изображение" class="input-text">
-											<ladel class="input-icon">
-												<input type="file" name="file_mark" class="input-hide">
-											</ladel>
-										</li>
-									</ul>
+									<div class="settings-wrapper">
+										<ul class="settings-inputs-list">
+											<li class="settings-inputs-list__item">
+												<div class="settings-title">Исходное изображение</div>
+												<div class="settings-inputs-block">
+													<input type="text" name="file_back_name" readonly="" placeholder="Загрузите изображение" class="input-text">
+													<ladel class="input-icon">
+														<input type="file" name="file_back" class="input-hide">
+													</ladel>
+												</div>
+											</li>
+											<li class="settings-inputs-list__item">
+												<div class="settings-title">Водянной знак</div>
+												<div class="settings-inputs-block">
+													<input type="text" name="file_mark_name" readonly="" placeholder="Загрузите изображение" class="input-text">
+													<ladel class="input-icon">
+														<input type="file" name="file_mark" class="input-hide">
+													</ladel>
+												</div>
+											</li>
+										</ul>
+									</div>
 								</div>
 							</li>
 							<li class="settings-item">
 								<!--блок ручной настройки положения марки-->
 								<div class="settings-position">
-									<div class="settings-title">Положение</div>
-									<ul class="settings-position-list">
-										<li class="settings-position-list__item">
-											<div class="settings-position-map">
-												<ul class="settings-position-map-list">
-													<li class="settings-position-map-list__item">
-														<label class="settings-position-map__label">
-															<input type="radio" name="mark-position" class="settings-position-map__label__unit">
-														</label>
-													</li>
-													<li class="settings-position-map-list__item">
-														<label class="settings-position-map__label">
-															<input type="radio" checked="checked" name="mark-position" class="settings-position-map__label__unit">
-														</label>
-													</li>
-													<li class="settings-position-map-list__item">
-														<label class="settings-position-map__label">
-															<input type="radio" name="mark-position" class="settings-position-map__label__unit">
-														</label>
-													</li>
-													<li class="settings-position-map-list__item">
-														<label class="settings-position-map__label">
-															<input type="radio" name="mark-position" class="settings-position-map__label__unit">
-														</label>
-													</li>
-													<li class="settings-position-map-list__item">
-														<label class="settings-position-map__label">
-															<input type="radio" name="mark-position" class="settings-position-map__label__unit">
-														</label>
-													</li>
-													<li class="settings-position-map-list__item">
-														<label class="settings-position-map__label">
-															<input type="radio" name="mark-position" class="settings-position-map__label__unit">
-														</label>
-													</li>
-													<li class="settings-position-map-list__item">
-														<label class="settings-position-map__label">
-															<input type="radio" name="mark-position" class="settings-position-map__label__unit">
-														</label>
-													</li>
-													<li class="settings-position-map-list__item">
-														<label class="settings-position-map__label">
-															<input type="radio" name="mark-position" class="settings-position-map__label__unit">
-														</label>
-													</li>
-												</ul>
+									<div class="settings-wrapper">
+										<div class="settings-title">Положение</div>
+										<div class="settings-position-block">
+											<div class="settings-position-block__left">
+												<div class="settings-position-map">
+													<ul class="settings-position-map-list">
+														<li class="settings-position-map-list__item">
+															<input id="input-map0" type="radio" checked="checked" name="mark-position" class="input-hide">
+															<label for="input-map0" class="settings-position-map__label"></label>
+														</li>
+														<li class="settings-position-map-list__item">
+															<input id="input-map1" type="radio" name="mark-position" class="input-hide">
+															<label for="input-map1" class="settings-position-map__label"></label>
+														</li>
+														<li class="settings-position-map-list__item">
+															<input id="input-map2" type="radio" name="mark-position" class="input-hide">
+															<label for="input-map2" class="settings-position-map__label"></label>
+														</li>
+														<li class="settings-position-map-list__item">
+															<input id="input-map3" type="radio" name="mark-position" class="input-hide">
+															<label for="input-map3" class="settings-position-map__label"></label>
+														</li>
+														<li class="settings-position-map-list__item">
+															<input id="input-map4" type="radio" name="mark-position" class="input-hide">
+															<label for="input-map4" class="settings-position-map__label"></label>
+														</li>
+														<li class="settings-position-map-list__item">
+															<input id="input-map5" type="radio" name="mark-position" class="input-hide">
+															<label for="input-map5" class="settings-position-map__label"></label>
+														</li>
+														<li class="settings-position-map-list__item">
+															<input id="input-map6" type="radio" name="mark-position" class="input-hide">
+															<label for="input-map6" class="settings-position-map__label"></label>
+														</li>
+														<li class="settings-position-map-list__item">
+															<input id="input-map7" type="radio" name="mark-position" class="input-hide">
+															<label for="input-map7" class="settings-position-map__label"></label>
+														</li>
+														<li class="settings-position-map-list__item">
+															<input id="input-map8" type="radio" name="mark-position" class="input-hide">
+															<label for="input-map8" class="settings-position-map__label"></label>
+														</li>
+													</ul>
+												</div>
 											</div>
-										</li>
-										<li class="settings-position-list__item">
-											<div class="settings-position-control">
-												<ul class="settings-position-control-list">
-													<li class="settings-position-control-list__item">
-														<div class="position-control-X">
-															<div class="position-control-title">X</div>
-															<div class="position-control-value"></div>
-															<div class="position-control-trigger">
-																<div class="trigger trigger__up"></div>
-																<div class="trigger trigger__down">
-																	<div class="asd"></div>
+											<div class="settings-position-block__right">
+												<div class="settings-position-control">
+													<ul class="settings-position-control-list">
+														<li class="settings-position-control-list__item">
+															<div class="position-control-X">
+																<div class="position-control-title">X</div>
+																<input type="text" id="position-control-X" maxlength="3" value="0" class="position-control-value">
+																<div class="position-control-trigger">
+																	<div class="trigger trigger__up"></div>
+																	<div class="trigger trigger__down">
+																		<div class="asd"></div>
+																	</div>
 																</div>
 															</div>
-														</div>
-													</li>
-													<li class="settings-position-control-list__item">
-														<div class="position-control-Y">
-															<div class="position-control-title">Y</div>
-															<div class="position-control-value"></div>
-															<div class="position-control-trigger">
-																<div class="trigger trigger__up"></div>
-																<div class="trigger trigger__down">
-																	<div class="asd"></div>
+														</li>
+														<li class="settings-position-control-list__item">
+															<div class="position-control-Y">
+																<div class="position-control-title">Y</div>
+																<input type="text" id="position-control-Y" maxlength="3" value="0" class="position-control-value">
+																<div class="position-control-trigger">
+																	<div class="trigger trigger__up"></div>
+																	<div class="trigger trigger__down">
+																		<div class="asd"></div>
+																	</div>
 																</div>
 															</div>
-														</div>
-													</li>
-												</ul>
+														</li>
+													</ul>
+												</div>
 											</div>
-										</li>
-									</ul>
+										</div>
+									</div>
 								</div>
 							</li>
 							<li class="settings-item">
 								<!--блок настройки прозрачности марки-->
 								<div class="settings-opacity">
-									<div class="settings-title">Прозрачность</div>
-									<div class="settings-opacity__wrap">
-										<input type="range" min="0" max="100" step="10" value="50" class="settings-opacity__input">
+									<div class="settings-wrapper">
+										<div class="settings-title">Прозрачность</div>
+										<div class="settings-opacity__wrap">
+											<input type="range" min="0" max="100" step="10" value="50" class="settings-opacity__input">
+										</div>
 									</div>
 								</div>
 							</li>
 							<li class="settings-item">
 								<!--блок кнопок-->
 								<div class="settings-buttons">
-									<button class="settings-button settings-button__reset">Сброс</button>
-									<button class="settings-button settings-button__download">Скачать</button>
+									<div class="settings-wrapper-buttons">
+										<button class="settings-button">Сброс</button>
+										<button class="settings-button leftpos settings-button__active">Скачать</button>
+									</div>
 								</div>
 							</li>
 						</ul>
@@ -167,7 +175,7 @@
 			</div>
 			<footer class="footer">
 				<div class="footer-inner">
-					<div class="copiright">© 2016. Это сайт LOFTprojectTEAM , пожалуйста, не копируйте и не воруйте его</div>
+					<div class="copyright">© 2016. Это сайт LOFTprojectTEAM , пожалуйста, не копируйте и не воруйте его</div>
 				</div>
 			</footer>
 		</div>
