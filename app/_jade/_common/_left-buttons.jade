@@ -1,18 +1,18 @@
 .left-buttons
   .language
-    ul.language-list
+    ul.language__list
       - var lang = [ 'рус', 'eng']
       each item in lang
-        li.language-list__item
-          a.language-link=item
-  .socials-like
-    ul.social-list
+        li.language__item
+          a.language__link= item
+  .socials
+    ul.social__list
       -
         var socials = {
-        'fb':'#fb',
-        'vk':'#vk',
-        'tw':'#tw'
+        'fb':'fb',
+        'vk':'vk',
+        'tw':'tw'
         };
       each value, key in socials
-        li.social-list__item
-          a(id=value ).language-link= key
+        li.social__item
+          a(href='#' id=value).social__link= key

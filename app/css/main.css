@@ -769,9 +769,15 @@ html, body {
     background: #9FB2C1; }
 
 .left-buttons {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 50%;
   background: yellow; }
+
+.language__item {
+  background: #f1f1f5; }
+
+.language__link {
+  text-transform: uppercase; }
 
 /*# sourceMappingURL=main.css.map */
