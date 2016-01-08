@@ -14,6 +14,11 @@
   -webkit-transform: rotate(45deg);  /* Safari y Chrome */
   filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476); /* IE */
 }
+@mixin transition($transition){
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -webkit-transition: $transition;
+}
 
 @mixin texthide{
   position: absolute;
@@ -30,15 +35,6 @@ $SwadowThumb: 0 1px 4px rgba(0, 0, 0, 0.6);
 $ColorThumb: #A3B5C3;
 $BorderThumb: 7px solid #ecebf0;
 
-//border-radius: 50%;
-//height: 21px;
-//width: 21px;
-//cursor: pointer;
-//background: #A3B5C3;
-//border: 7px solid #F2F1F6;
-//margin-top: -9px;
-//outline: none;
-//box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 
 @mixin inputSliderThumb{
   box-shadow: $SwadowThumb;
@@ -66,7 +62,14 @@ $BorderThumb: 7px solid #ecebf0;
   border: none;
 }
 
-//border: none;
-//background: #9FB2C1;
-//height: 3px;
-//border-radius: 2px;
+@mixin sprite-image-path($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url('../img/#{$sprite-image}');
+}
+
+@mixin my-sprite($sprite) {
+  @include sprite-image-path($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}

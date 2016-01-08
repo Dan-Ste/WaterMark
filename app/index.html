@@ -12,15 +12,16 @@
 		<div class="left-buttons">
 			<div class="language">
 				<ul class="language-list">
-					<li class="language-list__item"><a class="language-link">рус</a></li>
-					<li class="language-list__item"><a class="language-link">eng</a></li>
+					<li class="language-list__item"><a href="#rus" class="language-link__рус language-link">рус</a></li>
+					<li class="language-list__item"><a href="#eng" class="language-link__eng language-link">eng</a></li>
 				</ul>
 			</div>
 			<div class="socials-like">
 				<ul class="social-list">
-					<li class="social-list__item"><a id="#fb" class="language-link">fb</a></li>
-					<li class="social-list__item"><a id="#vk" class="language-link">vk</a></li>
-					<li class="social-list__item"><a id="#tw" class="language-link">tw</a></li>
+					<li class="social-list__item"><a href="#fb" class="social-link__fb social-link">fb</a></li>
+					<li class="social-list__item"><a href="#vk" class="social-link__vk social-link">vk</a></li>
+					<li class="social-list__item"><a href="#tw" class="social-link__tw social-link">tw</a></li>
+					<li class="social-list__item"><a class="social-link social-link__like">like</a></li>
 				</ul>
 			</div>
 		</div>
@@ -50,7 +51,7 @@
 												<div class="settings-inputs-block">
 													<input type="text" name="file_back_name" readonly="" placeholder="Загрузите изображение" class="input-text">
 													<ladel class="input-icon">
-														<input type="file" name="file_back" class="input-hide">
+														<input type="file" id="file_back" name="file_back" class="input-hide">
 													</ladel>
 												</div>
 											</li>
@@ -59,7 +60,7 @@
 												<div class="settings-inputs-block">
 													<input type="text" name="file_mark_name" readonly="" placeholder="Загрузите изображение" class="input-text">
 													<ladel class="input-icon">
-														<input type="file" name="file_mark" class="input-hide">
+														<input type="file" id="file_mark" name="file_mark" class="input-hide">
 													</ladel>
 												</div>
 											</li>

@@ -1,10 +1,14 @@
 .left-buttons
   .language
     ul.language-list
-      - var lang = [ 'рус', 'eng']
-      each item in lang
+      -
+        var lang = {
+        'рус':'#rus',
+        'eng':'#eng'
+        };
+      each value, key in lang
         li.language-list__item
-          a.language-link=item
+          a(href=value class='language-link__#{key}' ).language-link= key
   .socials-like
     ul.social-list
       -
@@ -15,4 +19,6 @@
         };
       each value, key in socials
         li.social-list__item
-          a(id=value ).language-link= key
+          a(href=value class='social-link__#{key}' ).social-link= key
+      li.social-list__item
+        a.social-link.social-link__like like

@@ -2,8 +2,10 @@
   cursor: pointer;
   position: absolute;
   right: 0;
+  top: 0;
   opacity: 0;
   filter: alpha(opacity=0);
+  outline: none;
 }
 .input-text{
   width: 180px;
@@ -15,7 +17,6 @@
   background: #F2F1F6;
 }
 .input-icon{
-  content: '';
   cursor: pointer;
   z-index: 120;
   width: 40px;
@@ -24,6 +25,12 @@
   background: #F97E77;
   position: absolute;
   border-radius: 0 3px 3px 0;
+  &:after {
+    content: '';
+    display: block;
+    margin: 5px auto;
+    @include my-sprite($-download);
+  }
 }
 .settings-inputs-block{
   overflow: hidden;
