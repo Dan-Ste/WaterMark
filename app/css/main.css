@@ -818,7 +818,7 @@ html, body {
     background: #F97E77; }
 
 .left-buttons {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 14.4%;
   z-index: 200; }
@@ -887,27 +887,27 @@ html, body {
 
 .social-link__vk:after {
   background-image: url("../img/spritesheet.png");
-  background-position: -74px 0px;
+  background-position: -74px -28px;
   width: 32px;
   height: 18px;
   margin: 13px auto; }
 
 .social-link__vk:hover:after {
   background-image: url("../img/spritesheet.png");
-  background-position: -74px -28px;
+  background-position: -74px 0px;
   width: 32px;
   height: 18px; }
 
 .social-link__tw:after {
   margin: 12px auto;
   background-image: url("../img/spritesheet.png");
-  background-position: -36px 0px;
+  background-position: 0px -42px;
   width: 28px;
   height: 22px; }
 
 .social-link__tw:hover:after {
   background-image: url("../img/spritesheet.png");
-  background-position: 0px -42px;
+  background-position: -36px 0px;
   width: 28px;
   height: 22px; }
 

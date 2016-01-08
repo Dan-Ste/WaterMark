@@ -13,12 +13,13 @@
     ul.social-list
       -
         var socials = {
-        'fb':'#fb',
-        'vk':'#vk',
-        'tw':'#tw'
+        'fb':'fb',
+        'vk':'vk',
+        'tw':'tw'
         };
       each value, key in socials
         li.social-list__item
           a(href=value class='social-link__#{key}' ).social-link= key
       li.social-list__item
         a.social-link.social-link__like like
+
