@@ -1,5 +1,5 @@
 php/vendor
-php/app/uploads
+php/uploads
 .sass-cache
 app/bower
 node_modules
