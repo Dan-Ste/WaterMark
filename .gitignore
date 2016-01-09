@@ -1,5 +1,6 @@
 .sass-cache
 app/bower
 node_modules
-dist
+/dist
 .idea/
+.DS_Store
