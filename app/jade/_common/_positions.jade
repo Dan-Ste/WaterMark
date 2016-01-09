@@ -1,0 +1,32 @@
+.settings-position
+  .settings-wrapper
+    .settings-title Положение
+    .settings-position-block
+      .settings-position-block__left
+        .settings-position-map
+          ul.settings-position-map-list
+            - for (var i = 0; i < 9; i++)
+              if i !== 0
+                li.settings-position-map-list__item
+                  input( id='input-map#{i}' type = "radio" name = 'mark-position').input-hide
+                  label(for='input-map#{i}').settings-position-map__label
+              else
+                li.settings-position-map-list__item
+                  input( id='input-map#{i}' type = "radio" checked="checked" name = 'mark-position').input-hide
+                  label(for='input-map#{i}').settings-position-map__label
+      .settings-position-block__right
+        .settings-position-control
+          ul.settings-position-control-list
+            - var positions = [ 'X', 'Y']
+            each item in positions
+              li.settings-position-control-list__item
+                div(class='position-control-#{item}')
+                  .position-control-title= item
+                  input(type = "text" id='position-control-#{item}' maxlength='3'
+                  value='0').position-control-value
+                  .position-control-trigger
+                    .trigger.trigger__up
+                    .trigger.trigger__down
+                      .asd
+
+

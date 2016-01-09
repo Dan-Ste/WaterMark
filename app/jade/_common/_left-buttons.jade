@@ -1,0 +1,25 @@
+.left-buttons
+  .language
+    ul.language-list
+      -
+        var lang = {
+        'рус':'#rus',
+        'eng':'#eng'
+        };
+      each value, key in lang
+        li.language-list__item
+          a(href=value class='language-link__#{key}' ).language-link= key
+  .socials-like
+    ul.social-list
+      -
+        var socials = {
+        'fb':'fb',
+        'vk':'vk',
+        'tw':'tw'
+        };
+      each value, key in socials
+        li.social-list__item
+          a(href=value class='social-link__#{key}' ).social-link= key
+      li.social-list__item
+        a.social-link.social-link__like like
+

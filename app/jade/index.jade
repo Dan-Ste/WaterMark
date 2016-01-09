@@ -1,0 +1,51 @@
+include _common/_mixins
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content="width=1400")
+    meta(name='viewport' content='width=device-width')
+    link(rel="stylesheet", href="/bower/normalize-css/normalize.css")
+    link(rel="stylesheet" href="/css/main.css")
+    title WaterMark
+  body
+    //блок кнопок слева
+    include _common/_left-buttons
+
+    .wrapper
+      .page-content
+        .container
+          .veiwport
+            //блок просмотра
+            .veiwport-title
+              h1.title Генератор водяных знаков
+            .veiwport-inner
+          .settings
+            //блок настройки
+            .settings-title
+              h2.title Настройки
+            ul.settings-list
+              li.settings-item
+                //блок инпутов
+                include _common/_inputs
+
+              li.settings-item
+                //блок ручной настройки положения марки
+                include _common/_positions
+
+              li.settings-item
+                //блок настройки прозрачности марки
+                include _common/_opacity
+
+              li.settings-item
+                //блок кнопок
+                .settings-buttons
+                  .settings-wrapper-buttons
+                    button.settings-button Сброс
+                    button.settings-button.leftpos.settings-button__active Скачать
+      footer.footer
+        .footer-inner
+          .copyright © 2016. Это сайт LOFTprojectTEAM , пожалуйста, не копируйте и не воруйте его
+
+    script(src='js/main.js')

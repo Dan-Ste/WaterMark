@@ -1,0 +1,75 @@
+
+@mixin clearfix{
+  &:before, &:after{
+    content: "";
+    display: table;
+  }
+  &:after{
+    clear: both;
+  }
+}
+@mixin angle_45 {
+  -moz-transform: rotate(45deg);  /* Firefox */
+  -o-transform: rotate(45deg);  /* Opera */
+  -webkit-transform: rotate(45deg);  /* Safari y Chrome */
+  filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476); /* IE */
+}
+@mixin transition($transition){
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -webkit-transition: $transition;
+}
+
+@mixin texthide{
+  position: absolute;
+  text-indent: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  padding: 0;
+  // parent (overflow: hidden;)
+}
+
+$ColorRange: #9FB2C1;
+$SwadowThumb: 0 1px 4px rgba(0, 0, 0, 0.6);
+$ColorThumb: #A3B5C3;
+$BorderThumb: 7px solid #ecebf0;
+
+
+@mixin inputSliderThumb{
+  box-shadow: $SwadowThumb;
+  height: 21px;
+  width: 21px;
+  border-radius: 50%;
+  background: $ColorThumb;
+  border: $BorderThumb;
+  cursor: pointer;
+  outline: none;
+  box-sizing: border-box;
+  &:hover, &:active{
+    background: #F97E77;
+  }
+}
+
+@mixin inputRangeTrack{
+  width: 100%;
+  outline: none;
+  animate: 0.2s;
+  height: 3px;
+  cursor: pointer;
+  background: $ColorRange;
+  border-radius: 2px;
+  border: none;
+}
+
+@mixin sprite-image-path($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url('../img/#{$sprite-image}');
+}
+
+@mixin my-sprite($sprite) {
+  @include sprite-image-path($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}

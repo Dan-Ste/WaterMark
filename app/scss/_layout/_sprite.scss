@@ -1,0 +1,81 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$-axis-x: (31px, 111px, -31px, -111px, 29px, 9px, 135px, 127px, 'spritesheet.png', 'Axis-x', );
+$-axis-y: (116px, 29px, -116px, -29px, 11px, 30px, 135px, 127px, 'spritesheet.png', 'Axis-y', );
+$-download: (0px, 111px, 0px, -111px, 21px, 16px, 135px, 127px, 'spritesheet.png', 'Download', );
+$-mark-hover: (116px, 0px, -116px, 0px, 19px, 19px, 135px, 127px, 'spritesheet.png', 'Mark-hover', );
+$-mark: (79px, 74px, -79px, -74px, 19px, 19px, 135px, 127px, 'spritesheet.png', 'Mark', );
+$-pattern-hover: (50px, 74px, -50px, -74px, 19px, 19px, 135px, 127px, 'spritesheet.png', 'Pattern-hover', );
+$-pattern: (38px, 42px, -38px, -42px, 19px, 19px, 135px, 127px, 'spritesheet.png', 'Pattern', );
+$-fb-hover: (0px, 74px, 0px, -74px, 15px, 27px, 135px, 127px, 'spritesheet.png', 'Fb-hover', );
+$-fb: (25px, 74px, -25px, -74px, 15px, 27px, 135px, 127px, 'spritesheet.png', 'Fb', );
+$-like: (0px, 0px, 0px, 0px, 26px, 32px, 135px, 127px, 'spritesheet.png', 'Like', );
+$-tw-hover: (36px, 0px, -36px, 0px, 28px, 22px, 135px, 127px, 'spritesheet.png', 'Tw-hover', );
+$-tw: (0px, 42px, 0px, -42px, 28px, 22px, 135px, 127px, 'spritesheet.png', 'Tw', );
+$-vk-hover: (74px, 0px, -74px, 0px, 32px, 18px, 135px, 127px, 'spritesheet.png', 'Vk-hover', );
+$-vk: (74px, 28px, -74px, -28px, 32px, 18px, 135px, 127px, 'spritesheet.png', 'Vk', );
+$spritesheet-sprites: ($-axis-x, $-axis-y, $-download, $-mark-hover, $-mark, $-pattern-hover, $-pattern, $-fb-hover, $-fb, $-like, $-tw-hover, $-tw, $-vk-hover, $-vk, );
+$spritesheet: (135px, 127px, 'spritesheet.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

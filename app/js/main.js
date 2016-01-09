@@ -1,0 +1,1 @@
+require('./partials/test')();
