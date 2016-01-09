@@ -115,7 +115,8 @@ gulp.task('scss', function () {
 gulp.task('js', function () {
   return browserify(path.app.js)
         .bundle()
-        .pipe(source('main.js')).on('error', log)
+        .on('error', log)
+        .pipe(source('main.js'))
         .pipe(gulp.dest(path.dist.js))
         .pipe(reload({stream: true}));
 });
