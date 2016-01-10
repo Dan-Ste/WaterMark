@@ -51,10 +51,10 @@ function changePositionsWithInput(event) {
 
   if($(this).val() > max) {
     waterMarkImg.css( property, max );
-    indicatorX.val(max);
+    $(this).val(max);
   } else if ($(this).val() < 0) {
     waterMarkImg.css( property, 0 );
-    indicatorX.val(0);
+    $(this).val(0);
   } else {
     waterMarkImg.css( property, parseInt($(this).val()) );
   }
@@ -62,54 +62,38 @@ function changePositionsWithInput(event) {
 
 function changeKeyPositions(event) {
 
-// Depending on chosen radio button we change key point position of the water mark
+// Depend on chosen radio button we change key point position of the water mark
   switch(event.target.id) {
     case 'input-map0':
       waterMarkImg.css({'top': 0, 'left': 0});
-      indicatorX.val(parseInt(waterMarkImg.css('top')));
-      indicatorY.val(parseInt(waterMarkImg.css('left')));
-      return;
+      break;
     case 'input-map1':
       waterMarkImg.css({'top': 0, 'left': viewportInnerWidth/2 - waterMarkImgWidth/2});
-      indicatorX.val(parseInt(waterMarkImg.css('top')));
-      indicatorY.val(parseInt(waterMarkImg.css('left')));
-      return;
+      break;
     case 'input-map2':
       waterMarkImg.css({'top': 0, 'left': maxX});
-      indicatorX.val(parseInt(waterMarkImg.css('top')));
-      indicatorY.val(parseInt(waterMarkImg.css('left')));
-      return;
+      break;
     case 'input-map3':
       waterMarkImg.css({'top': viewportInnerHeight/2 - waterMarkImgHeight/2, 'left': 0});
-      indicatorX.val(parseInt(waterMarkImg.css('top')));
-      indicatorY.val(parseInt(waterMarkImg.css('left')));
-      return;
+      break;
     case 'input-map4':
       waterMarkImg.css({'top': viewportInnerHeight/2 - waterMarkImgHeight/2, 'left': viewportInnerWidth/2 - waterMarkImgWidth/2});
-      indicatorX.val(parseInt(waterMarkImg.css('top')));
-      indicatorY.val(parseInt(waterMarkImg.css('left')));
-      return;
+      break;
     case 'input-map5':
       waterMarkImg.css({'top': viewportInnerHeight/2 - waterMarkImgHeight/2, 'left': maxX});
-      indicatorX.val(parseInt(waterMarkImg.css('top')));
-      indicatorY.val(parseInt(waterMarkImg.css('left')));
-      return;
+      break;
     case 'input-map6':
       waterMarkImg.css({'top': maxY, 'left': 0});
-      indicatorX.val(parseInt(waterMarkImg.css('top')));
-      indicatorY.val(parseInt(waterMarkImg.css('left')));
-      return;
+      break;
     case 'input-map7':
       waterMarkImg.css({'top': maxY, 'left': viewportInnerWidth/2 - waterMarkImgWidth/2});
-      indicatorX.val(parseInt(waterMarkImg.css('top')));
-      indicatorY.val(parseInt(waterMarkImg.css('left')));
-      return;
+      break;
     case 'input-map8':
       waterMarkImg.css({'top': maxY, 'left': maxX});
-      indicatorX.val(parseInt(waterMarkImg.css('top')));
-      indicatorY.val(parseInt(waterMarkImg.css('left')));
-      return;
+      break;
   }
+  indicatorX.val(parseInt(waterMarkImg.css('top')));
+  indicatorY.val(parseInt(waterMarkImg.css('left')));
 }
 
 function init() {
