@@ -7,6 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var spritesmith = require('gulp.spritesmith');
 var source = require('vinyl-source-stream');
 var browserify = require('browserify');
+var tap = require('gulp-tap');
 var colors = require('colors');
 var del = require('del');
 var reload = browserSync.reload;
@@ -111,12 +112,17 @@ gulp.task('scss', function () {
 
 });
 
+function bundler(file) {
+  var b = browserify(file.path);
+  var stream = b.bundle();
+  file.contents = stream;
+}
+
 //-----------Js------------//
 gulp.task('js', function () {
-  return browserify(path.app.js)
-        .bundle()
-        .on('error', log)
-        .pipe(source('main.js'))
+  gulp.src(path.app.js)
+        .pipe(plumber())
+        .pipe(tap(bundler))
         .pipe(gulp.dest(path.dist.js))
         .pipe(reload({stream: true}));
 });
