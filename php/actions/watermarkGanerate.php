@@ -1,6 +1,7 @@
-<?php 
+<?php
+
 	session_start();
-	require_once '../../vendor/autoload.php';
+	require_once '../vendor/autoload.php';
 
 	use PHPImageWorkshop\ImageWorkshop;
 
@@ -9,11 +10,12 @@
 	$img = ImageWorkshop::initFromPath($pathToMain);
 	$mark = ImageWorkshop::initFromPath($pathToMark);
 
-	$mark->opacity(50);
+	$mark->opacity(100);
+
 	$img->addLayerOnTop($mark, 120, 120, "LT");
 	$image = $img->getResult();
 	header('Content-type: image/png');
-	header('Content-Disposition: filename="butterfly.png"');
+	header('Content-Disposition: filename="withMark.png"');
 	imagepng($image, null, 8);
 
 ?>

@@ -1,5 +1,5 @@
 <?php 
-	$file = $_FILES['mainfile'];
+	$file = $_FILES['file_back'];
 	if(strstr($file['type'], 'image') && !$file['error']){
 		session_start();
 
@@ -10,5 +10,5 @@
 			$_SESSION['pathToMainFile'] = $path;
 		}
 	}
-	echo json_encode($_SESSION);
+	echo json_encode("../php/uploads/main/$i".$file['name']);
 ?>
