@@ -6,6 +6,7 @@
     "colors": "^1.1.2",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-jade": "^1.1.0",
     "gulp-plumber": "^1.0.1",
     "gulp-ruby-sass": "^2.0.6",
@@ -16,6 +17,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "jquery": "^2.2.0"
+    "jquery": "^2.2.0",
+    "jquery-ui": "^1.10.5"
   }
 }

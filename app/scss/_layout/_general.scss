@@ -56,13 +56,36 @@ $footerHeight: 60px;
   background: -moz-linear-gradient(-45deg, #605f64 0%, #6a6663 48%, #635457 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(-45deg, #605f64 0%,#6a6663 48%,#635457 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(135deg, #605f64 0%,#6a6663 48%,#635457 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  .veiwport-inner{
-    background-image: url('../img/Background-viewport.jpg');
-    box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.6);
-    height: 534px;
-    position: relative;
-  }
 }
+.veiwport-inner{
+  background-image: url('../img/Background-viewport.jpg');
+  box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.6);
+  height: 534px;
+  position: relative;
+}
+
+.view-port-inner__wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0;
+  overflow: hidden;
+}
+
+.viewport-inner__water-mark {
+  position: absolute;
+  float: left;
+  font-size: 0;
+  top: 0;
+  left: 0;
+}
+
+.viewport-inner__main-image {
+  max-width: 652px;
+  max-height: 534px;
+}
+
 .veiwport-title{
   margin-bottom: 55px;
   .title{

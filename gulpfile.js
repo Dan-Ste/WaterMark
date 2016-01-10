@@ -1,6 +1,7 @@
 var gulp = require("gulp");
 var browserSync = require('browser-sync');
 var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
 var jade = require('gulp-jade');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
@@ -105,7 +106,7 @@ gulp.task('scss', function () {
         './dist/bower/support-for/sass/'],
       errLogToConsole: true
     })).on('error', log)
-
+    .pipe(autoprefixer())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(path.dist.css))
     .pipe(reload({stream: true}));
@@ -140,7 +141,7 @@ gulp.task('server', function () {
 //-----------watch files------------//
 gulp.task('watch', function () {
   gulp.watch(path.watch.jade, ['jade']);
-  gulp.watch(path.watch.scss, ['sass']);
+  gulp.watch(path.watch.scss, ['scss']);
   gulp.watch(path.watch.fonts, ['fonts']);
   gulp.watch(path.watch.img, ['img']);
   gulp.watch(path.watch.sprite, ['sprite']);
