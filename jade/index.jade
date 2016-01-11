@@ -1,0 +1,35 @@
+extends main
+block title 
+	| Обработка изображения.
+block links
+	link(rel="stylesheet", href="bower/normalize-css/normalize.css")
+	link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css")
+	link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css")		
+	link(rel="stylesheet", href="css/main.css")
+block content
+	//
+		.watermark
+			img.watermark__image(src="img/spb.jpg", alt="Водяной знак")
+			div(id="slider" class="watermark__slider")
+	.animation
+		.animation__block
+			h1.animation__header Изучаем анимации
+			.animation__wrap
+				<i class="fa fa-diamond"></i>
+			.animation__wrap
+				<i class="fa fa-diamond"></i>
+			.animation__wrap
+				<i class="fa fa-diamond"></i>
+			.animation__wrap
+				<i class="fa fa-diamond"></i>
+			.animation__content
+				.animation__slider 
+					p.animation__head Slide
+			.animation__content
+				.animation__slider.animation__experiment
+					p.animation__head Slide
+block scripts
+	script(src="bower/jquery/dist/jquery.min.js")
+	script(src="bower/html5shiv/dist/html5shiv.min.js")
+	script(src="bower/jquery-ui/jquery-ui.js")
+	script(src="js/main.js")

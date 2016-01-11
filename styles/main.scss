@@ -1,0 +1,122 @@
+.watermark{
+	margin: 50px;
+}
+.watermark__image{
+	width: 400px;
+}
+.watermark__slider{
+	width: 400px;
+}
+body{
+	color: #fff;
+}
+.animation{
+	position: relative;
+	width: 1900px;
+	height: 1900px;
+}
+.animation__block{
+	width: 50%;
+	height: 100%;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #1abc9c;
+}
+.animation__header{
+	text-align: center;
+}
+.fa {
+	font-size: 40px;
+	}
+.fa-diamond{
+	position: relative;
+}
+.fa-diamond:hover{
+	animation: rotate 1s;
+	transition: color 2s;
+}
+.fa-diamond:before{
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 7px;
+	right: 0;
+	
+}
+.fa-diamond:after{
+	box-shadow: 0 0 0 4px;
+}
+.animation__wrap{
+	overflow: hidden;
+	display: inline-block;
+	margin-left: 50px;
+	width: 60px;
+	height: 60px;
+	background-color: #16a085;
+	border-radius: 50%;
+	transition: color 0.8s;
+	
+}
+.animation__wrap:hover{
+	background: #fff;
+	color: #1abc9c;
+	cursor: pointer;
+	
+}
+.animation__wrap:after{
+	box-shadow: 0 0 0 4px #fff;
+	scale: 1;
+}
+@keyframes rotate{
+	to {
+		transform: rotate(360deg)
+	}
+}
+.animation__content{
+	width: 900px;
+	position: relative;
+	margin-left: 20px;
+	margin-top: 20px;
+	height: 50px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background: #fff;
+}
+.animation__slider{
+	height:30px;
+	width:100px;
+	margin-top: 10px;
+	margin-left: 10px;
+	background: #1abc9c;
+	border-radius: 5px;
+}
+
+.animation__slider:hover{
+	animation-play-state: paused;
+}
+.animation__head{
+	margin: 0;
+	padding: 3px;
+}
+.animation__experiment{
+	animation-timing-function: cubic-bezier(.32,.93,.54,-0.14);
+}
+
+@keyframes move-slide{
+	to{
+		transform: translateX(600px);
+	}
+}
+@keyframes scale{
+	20%{
+		background-color: #fff;
+	}
+	100%{
+		background-color: #1abc9c;
+	}
+}
