@@ -8,6 +8,7 @@
 
 		if(move_uploaded_file($file['tmp_name'], $path)){
 			$_SESSION['pathToMainFile'] = $path;
+      $_SESSION['type'] = $file['type'];
 		}
 	}
 	echo json_encode("../php/uploads/main/$i".$file['name']);
