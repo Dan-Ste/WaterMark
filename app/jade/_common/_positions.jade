@@ -4,10 +4,12 @@
     .settings-position-block
       .settings-position-block__left
         .settings-position-map
-          .settings-position-map-pattern
-            span.settings-position-map-pattern-horizontal
-            span.settings-position-map-pattern-vertical
-          ul.settings-position-map-list
+          ul.settings-position-map-pattern-list
+              li.settings-position-map-pattern-item
+                span.settings-position-map-pattern-horizontal
+              li.settings-position-map-pattern-item
+                span.settings-position-map-pattern-vertical
+          ul.settings-position-map-one-list
             - for (var i = 0; i < 9; i++)
               if i !== 0
                 li.settings-position-map-list__item
@@ -32,14 +34,14 @@
                     .trigger.trigger__down
       .settings-position-extra
         ul.settings-position-extra-list
-          - var extras = [ 'pattern', 'one' ]
+          - var extras = [ 'one', 'pattern' ]
           each item in extras
-            if item !== 'pattern'
+            if item !== 'one'
               li.settings-position-extra-list__item
                 div(class='extra-icon-#{item}').extra-icon
             else
-              li.settings-position-extra-list__item
-                div(class='extra-icon-#{item} extra-icon-#{item}__active').extra-icon
+              li(class='extra-item__active').settings-position-extra-list__item
+                div(class='extra-icon-#{item}').extra-icon
 
 
 

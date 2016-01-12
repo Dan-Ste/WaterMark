@@ -5,7 +5,7 @@
 	position: relative;
 	border: 1px solid #9FB2C0;
 	border-radius: 3px;
-	&-list{
+	&-one-list{
 		font-size: 0;
 		width: 104px;
 	}
@@ -44,11 +44,41 @@
 .settings-position-map__label{
 	background: #F97E77;
 }
-.position-control-title, .position-control-value, .position-control-trigger{
+.position-control-value, .position-control-trigger{
 	display: inline-block;
 	font-size: 18px;
 	vertical-align: middle;
+	position: relative;
 }
+
+.position-control-title {
+	display: inline-block;
+	font-size: 18px;
+	vertical-align: middle;
+	position: relative;
+	&:before {
+		display: none;
+	}
+}
+
+.position-control-X{
+	.position-control-title{
+		&:before{
+			top: -13px;
+			@include my-sprite($-axis-x);
+		}
+	}
+}
+
+.position-control-Y{
+	.position-control-title{
+		&:before{
+			bottom: -6px;
+			@include my-sprite($-axis-y);
+		}
+	}
+}
+
 .position-control-value{
 	border: 1px solid #9FB2C0;
 	border-radius: 5px;
@@ -120,24 +150,68 @@ $BorderTriggerHover: 1px solid #2e3641;
 		margin-left: 0;
 	}
 }
+
+.extra-item__active{
+	.extra-icon-one{
+		@include my-sprite($-mark-active);
+	}
+	.extra-icon-pattern{
+		@include my-sprite($-pattern-active);
+	}
+}
 .extra-icon{
 	cursor: pointer;
 	&-one{
 		@include my-sprite($-mark);
-		&__active{
-			@include my-sprite($-mark-hover);
-		}
 		&:hover{
 			@include my-sprite($-mark-hover);
 		}
 	}
 	&-pattern{
 		@include my-sprite($-pattern);
-		&__active{
-			@include my-sprite($-pattern-hover);
-		}
 		&:hover{
 			@include my-sprite($-pattern-hover);
 		}
+	}
+}
+
+.settings-position-map-pattern-list{
+	display: none;
+}
+.settings-position-map-pattern-item{
+	height: 100px;
+	width: 100px;
+	position: absolute;
+	&:first-child{
+		&:before{
+			content: '';
+			display: inline-block;
+			vertical-align: middle;
+			height: 100%;
+		}
+	}
+	.settings-position-map-pattern-horizontal{
+		width: 100%;
+		height: 15px;
+		margin: auto;
+		background: #F97E77;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.settings-position-map-pattern-vertical{
+		width: 15px;
+		height: 100%;
+		margin: 0 auto;
+		background: #F97E77;
+		display: block;
+	}
+}
+.position-control-title__patern {
+	font-size: 0;
+	&:before {
+		content: '';
+		right: 0;
+		position: absolute;
+		display: block;
 	}
 }
