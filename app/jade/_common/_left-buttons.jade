@@ -19,7 +19,7 @@
         };
       each value, key in socials
         li.social-list__item
-          a(href=value class='social-link__#{key}' ).social-link= key
+          a(href="#" class='goodshare social-link__#{key}' data-type="#{key}").social-link= key
       li.social-list__item
-        a.social-link.social-link__like like
+        a(href="#").social-link.social-link__like like
 
