@@ -21,6 +21,7 @@ var path = {
       img: ['./app/img/**/*.+(png|jpg|jpeg|gif|svg)', '!./app/img/sprite/**/*.+(png|jpg|jpeg|gif|svg)'],
       sprite: './app/img/sprite/**/*.png',
       fonts: './app/fonts/**/*.*',
+      spriteScss: './app/scss/_layout/',
       js: './app/js/main.js'
     },
     dist: {
@@ -28,7 +29,6 @@ var path = {
       css: './dist/css/',
       img: './dist/img/',
       fonts: './dist/fonts/',
-      spriteScss: './dist/_scss/_layout/',
       js: './dist/js/'
     },
     watch: {
@@ -37,9 +37,9 @@ var path = {
       img: ['./app/img/**/*.+(png|jpg|jpeg|gif|svg)', '!./app/img/sprite/**/*.+(png|jpg|jpeg|gif|svg)'],
       sprite: './app/img/sprite/**/*.png',
       fonts: './app/fonts/**/*.*',
-      js: './app/js/**/*.js',
+      js: './app/js/**/*.js'
     }
-  }
+  };
 //-----------Logger------------//
 function log(error) {
   console.log([
@@ -62,7 +62,7 @@ gulp.task('sprite', function () {
   }));
   spriteData.img.pipe(gulp.dest(path.dist.img))
                 .pipe(reload({stream: true}));
-  spriteData.css.pipe(gulp.dest(path.dist.spriteScss))
+  spriteData.css.pipe(gulp.dest(path.app.spriteScss))
                 .pipe(reload({stream: true}));
 });
 
