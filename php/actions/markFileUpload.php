@@ -14,24 +14,24 @@
 
       $arr = array('path' =>"../php/uploads/main/$i".$file['name']);
 
-                        $pathToMain = $_SESSION['pathToMainFile'];
-                        $pathToMark = $_SESSION['pathToMarkFile'];
-                      $img = ImageWorkshop::initFromPath($pathToMain);
-                      $mark = ImageWorkshop::initFromPath($pathToMark);
-                        $ih = $img->getHeight();
-                        $iw = $img->getWidth();
-                        $mh = $mark->getHeight();
-                        $mw = $mark->getWidth();
-                        $ch = 652/$ih;
-                        $cw = 534/$iw;
+      $pathToMain = $_SESSION['pathToMainFile'];
+      $pathToMark = $_SESSION['pathToMarkFile'];
+      $img = ImageWorkshop::initFromPath($pathToMain);
+      $mark = ImageWorkshop::initFromPath($pathToMark);
+      $ih = $img->getHeight();
+      $iw = $img->getWidth();
+      $mh = $mark->getHeight();
+      $mw = $mark->getWidth();
+      $ch = 652/$ih;
+      $cw = 534/$iw;
 
-                        $_SESSION['coef'] = min($cw,$ch,1);
+      $_SESSION['coef'] = min($cw,$ch,1);
 
-                        if($ch < $ch && $iw>$mw) {
-                          $arr['height'] = $mh * 652/$ih;
-                        }elseif($ih>$mh) {
-                          $arr['width'] = $mw * 534/$iw;
-                        }
+      if($ch < $ch && $iw>$mw) {
+        $arr['height'] = $mh * 652/$ih;
+      }elseif($ih>$mh) {
+        $arr['width'] = $mw * 534/$iw;
+      }
     }
   echo json_encode($arr);
   }
