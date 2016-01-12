@@ -19,14 +19,12 @@ html(lang='ru')
           .veiwport
             //блок просмотра
             .veiwport-title
-              h1.title.rus Генератор водяных знаков
-              h1.title.eng Watermark generator
+              h1(data-lang='["Генератор водяных знаков", "Watermark generator"]').title Генератор водяных знаков
             .veiwport-inner
           .settings
             //блок настройки
             .settings-title
-              h2.title.rus Настройки
-              h2.title.eng Settings
+              h2(data-lang='["Настройки", "Settings"]').title Настройки
             ul.settings-list
               li.settings-item
                 //блок инпутов
@@ -54,4 +52,5 @@ html(lang='ru')
           .copyright.eng © 2016. London is the capital of Great Britain
     script(src='https://code.jquery.com/jquery-2.2.0.min.js')
     script(src='https://cdn.jsdelivr.net/g/jquery@1.11.3,jquery.goodshare.js@3.2.4')
+    script(src='js/testJS.js')
     script(src='js/main.js')

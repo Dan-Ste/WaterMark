@@ -1,2 +1,2 @@
 require('./partials/test')();
-require('./partials/switch-language')();
+require('./partials/switchLanguages')();
