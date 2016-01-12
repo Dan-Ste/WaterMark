@@ -1,12 +1,12 @@
 var $ = require('jquery');
 require('jquery-ui/jquery-ui');
-require('../../../dist/bower/blueimp-file-upload/js/jquery.fileupload');
+require('blueimp-file-upload/js/jquery.fileupload');
 
 function addlistenersForuploadFile() {
 
   $('#file_back').fileupload({
     dataType: 'json',
-    url: 'http://localhost/ls/WaterMark/php/actions/mainFileUpload.php',
+    url: window.location.href + 'php/actions/mainFileUpload.php',
     done: function (e,data) {
        console.log(data.result);
     }
@@ -15,14 +15,13 @@ function addlistenersForuploadFile() {
   $('#file_mark').fileupload(
     {
     dataType: 'json',
-    url: 'http://localhost/ls/WaterMark/php/actions/markFileUpload.php',
+    url: window.location.href + 'php/actions/markFileUpload.php',
     done: function (e,data) {
        console.log(data.result);
     }
     }
   );
-
+  console.log(window.location.href);
 }
-
 
 module.exports = addlistenersForuploadFile;
