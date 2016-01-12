@@ -2,15 +2,13 @@
   .settings-wrapper
     ul.settings-inputs-list
       li.settings-inputs-list__item
-        .settings-title.rus Исходное изображение
-        .settings-title.eng Original image
+        .settings-title(data-lang='["Исходное изображение", "Original image"]') Исходное изображение
         .settings-inputs-block
           input(type="text" name="file_back_name" readonly='' placeholder='Загрузите изображение').input-text
           ladel.input-icon
             input(type="file" id="file_back" name="file_back").input-hide
       li.settings-inputs-list__item
-        .settings-title.rus Водяной знак
-        .settings-title.eng Watermark
+        .settings-title(data-lang='["Водяной знак", "Watermark"]') Водяной знак
         .settings-inputs-block
           input(type="text" name="file_mark_name" readonly='' placeholder='Загрузите изображение').input-text
           ladel.input-icon
