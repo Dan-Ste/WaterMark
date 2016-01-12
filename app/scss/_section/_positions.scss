@@ -1,110 +1,143 @@
 .settings-position-map{
-  overflow: hidden;
-  height: 102px;
-  width: 102px;
-  position: relative;
-  border: 1px solid #9FB2C0;
-  border-radius: 3px;
-  &-list{
-    font-size: 0;
-    width: 104px;
-  }
+	overflow: hidden;
+	height: 102px;
+	width: 102px;
+	position: relative;
+	border: 1px solid #9FB2C0;
+	border-radius: 3px;
+	&-list{
+		font-size: 0;
+		width: 104px;
+	}
 }
 .settings-position-block{
-  margin-top: 37px;
-  margin-bottom: 26px;
+	margin-top: 37px;
+	margin-bottom: 26px;
 }
 .settings-position-block__left,
 .settings-position-block__right{
-  display: inline-block;
-  vertical-align: top;
+	display: inline-block;
+	vertical-align: top;
 }
 .settings-position-block__right{
-  float: right;
+	float: right;
 }
 .settings-position-map-list__item{
-  display: inline-block;
+	display: inline-block;
 }
 .settings-position-control-list__item{
-  margin-bottom: 12px;
-  &:last-child{
-    margin-bottom: 0;
-  }
+	margin-bottom: 12px;
+	&:last-child{
+		margin-bottom: 0;
+	}
 }
 .settings-position-map__label{
-  height: 34px;
-  width: 34px;
-  cursor: pointer;
-  background: #DAE1E9;
-  display: inline-block;
-  border-bottom: 1px solid #9FB2C0;
-  border-right: 1px solid #9FB2C0;
+	height: 34px;
+	width: 34px;
+	cursor: pointer;
+	background: #DAE1E9;
+	display: inline-block;
+	border-bottom: 1px solid #9FB2C0;
+	border-right: 1px solid #9FB2C0;
 }
 .input-hide:checked +
 .settings-position-map__label{
-  background: #F97E77;
+	background: #F97E77;
 }
 .position-control-title, .position-control-value, .position-control-trigger{
-  display: inline-block;
-  font-size: 18px;
-  vertical-align: middle;
+	display: inline-block;
+	font-size: 18px;
+	vertical-align: middle;
 }
 .position-control-value{
-  border: 1px solid #9FB2C0;
-  border-radius: 5px;
-  text-align: center;
-  height: 45px;
-  width: 46px;
-  font-size: 24px;
-  background: none;
-  outline: none;
-  margin-left: 3px;
+	border: 1px solid #9FB2C0;
+	border-radius: 5px;
+	text-align: center;
+	height: 45px;
+	width: 46px;
+	font-size: 24px;
+	background: none;
+	outline: none;
+	margin-left: 3px;
 }
 
 
 $BorderTrigger: 1px solid #9cb2c0;
 $BorderTriggerHover: 1px solid #2e3641;
 .trigger{
-  cursor: pointer;
-  height: 16px;
-  width: 18px;
-  overflow: hidden;
-  margin-bottom: 7px;
-  &:last-child{
-    margin-bottom: 0;
-  }
-  &:before{
-    content: '';
-    display: block;
-    margin: 2px auto;
-    height: 8px;
-    width: 8px;
-    border-left: $BorderTrigger;
-    border-top: $BorderTrigger;
-    @include angle_45;
-  }
-  &:hover{
-    &:before{
-      border-left: $BorderTriggerHover;
-      border-top: $BorderTriggerHover;
-    }
-  }
-  &__down{
-    &:before{
-      margin: 5px auto;
-      border-left: none;
-      border-top: none;
-      border-right: $BorderTrigger;
-      border-bottom: $BorderTrigger;
-    }
-    &:hover{
-      &:before{
-        margin: 5px auto;
-        border-left: none;
-        border-top: none;
-        border-right: $BorderTriggerHover;
-        border-bottom: $BorderTriggerHover;
-      }
-    }
-  }
+	cursor: pointer;
+	height: 16px;
+	width: 18px;
+	overflow: hidden;
+	margin-bottom: 7px;
+	&:last-child{
+		margin-bottom: 0;
+	}
+	&:before{
+		content: '';
+		display: block;
+		margin: 2px auto;
+		height: 8px;
+		width: 8px;
+		border-left: $BorderTrigger;
+		border-top: $BorderTrigger;
+		@include angle_45;
+	}
+	&:hover{
+		&:before{
+			border-left: $BorderTriggerHover;
+			border-top: $BorderTriggerHover;
+		}
+	}
+	&__down{
+		&:before{
+			margin: 5px auto;
+			border-left: none;
+			border-top: none;
+			border-right: $BorderTrigger;
+			border-bottom: $BorderTrigger;
+		}
+		&:hover{
+			&:before{
+				margin: 5px auto;
+				border-left: none;
+				border-top: none;
+				border-right: $BorderTriggerHover;
+				border-bottom: $BorderTriggerHover;
+			}
+		}
+	}
+}
+.settings-position-extra{
+	position: absolute;
+	top: -3px;
+	right: 10px;
+}
+.settings-position-extra-list__item{
+	display: inline-block;
+	margin-left: 7px;
+	&:first-child{
+		margin-left: 0;
+	}
+}
+.extra-icon{
+	cursor: pointer;
+	&-one{
+		@include my-sprite($-mark);
+		&__active{
+			@include my-sprite($-mark-hover);
+		}
+		&:hover{
+			@include my-sprite($-mark-hover);
+		}
+	}
+	&-pattern{
+		@include my-sprite($-pattern);
+		&__active{
+			@include my-sprite($-pattern-hover);
+		}
+		&:hover{
+			@include my-sprite($-pattern-hover);
+		}
+	}
 }

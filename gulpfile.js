@@ -36,9 +36,9 @@ var path = {
       img: ['./app/img/**/*.+(png|jpg|jpeg|gif|svg)', '!./app/img/sprite/**/*.+(png|jpg|jpeg|gif|svg)'],
       sprite: './app/img/sprite/**/*.png',
       fonts: './app/fonts/**/*.*',
-      js: './app/js/**/*.js',
+      js: './app/js/**/*.js'
     }
-  }
+  };
 //-----------Logger------------//
 function log(error) {
   console.log([
@@ -140,7 +140,7 @@ gulp.task('server', function () {
 //-----------watch files------------//
 gulp.task('watch', function () {
   gulp.watch(path.watch.jade, ['jade']);
-  gulp.watch(path.watch.scss, ['sass']);
+  gulp.watch(path.watch.scss, ['scss']);
   gulp.watch(path.watch.fonts, ['fonts']);
   gulp.watch(path.watch.img, ['img']);
   gulp.watch(path.watch.sprite, ['sprite']);

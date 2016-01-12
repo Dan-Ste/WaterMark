@@ -7,6 +7,7 @@ html(lang='ru')
     meta(http-equiv='X-UA-Compatible', content="width=1400")
     meta(name='viewport' content='width=device-width')
     link(rel="stylesheet", href="/bower/normalize-css/normalize.css")
+    //link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css")
     link(rel="stylesheet" href="/css/main.css")
     title WaterMark
   body
@@ -21,6 +22,10 @@ html(lang='ru')
             .veiwport-title
               h1.title Генератор водяных знаков
             .veiwport-inner
+              .view-port-inner__wrapper
+                .viewport-inner__water-mark
+                  img(src="img/Background-viewport2.jpg", alt="" id="image__mark")
+                img(src="img/spb.jpg", alt="" class="viewport-inner__main-image")
           .settings
             //блок настройки
             .settings-title
@@ -47,5 +52,8 @@ html(lang='ru')
       footer.footer
         .footer-inner
           .copyright © 2016. Это сайт LOFTprojectTEAM , пожалуйста, не копируйте и не воруйте его
-    script(src="https://cdn.jsdelivr.net/g/jquery@1.11.3,jquery.goodshare.js@3.2.4")
+    //script(src='js/jquery.min.js')
+    //script(src='js/jquery-ui.min.js')
+    //script(src='js/testDest.js')
     script(src='js/main.js')
+

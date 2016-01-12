@@ -1,113 +1,115 @@
 .left-buttons{
-  position: fixed;
-  left: 0;
-  top: 14.4%;
-  z-index: 200;
+	position: fixed;
+	left: 0;
+	top: 14.4%;
+	z-index: 200;
 }
 
 .language{
-  display: block;
-  background: red;
-  text-align: center;
-  margin-bottom: 20px;
+	display: block;
+	background: red;
+	text-align: center;
+	margin-bottom: 20px;
 }
 .language-list{
-  &__item {
-    border-bottom: 1px solid #95999e;
-    &:last-child {
-      border: none;
-    }
-  }
+	&__item {
+		border-bottom: 1px solid #95999e;
+		&:last-child {
+			border: none;
+		}
+	}
 }
 .language-link{
-  height: 34px;
-  text-transform: uppercase;
-  padding-top: 1px;
-  font-size: 20px;
-  font-family: SEGOEUIL;
-  text-decoration: none;
-  color: #95999e;
-  &:hover{
-    color: #3b3d42;
-  }
+	height: 34px;
+	text-transform: uppercase;
+	padding-top: 1px;
+	font-size: 20px;
+	font-family: SEGOEUIL;
+	text-decoration: none;
+	color: #95999e;
+	&:hover{
+		color: #3b3d42;
+	}
 }
 
 .social-link, .language-link {
-  width: 43px;
-  display: inline-block;
-  overflow: hidden;
-  background: #fff;
+	width: 43px;
+	display: inline-block;
+	overflow: hidden;
+	background: #fff;
 }
 
 .social-list, .language-list {
-  font-size: 0;
-  width: 43px;
+	font-size: 0;
+	width: 43px;
 }
 
 .social-list{
-  margin-left: -43px;
-  position: relative;
-  @include transition(all 0.8s ease-out);
-  &:hover{
-    margin-left: 0;
-  }
-  &__item{
-    display: inline-block;
-  }
+	margin-left: -43px;
+	position: relative;
+	@include transition(all 0.8s ease-out);
+	&:hover{
+		margin-left: 0;
+	}
+	&__item{
+		display: inline-block;
+	}
 }
 
 .social-link {
-  height: 40px;
-  font-size: 0;
-  &__like {
-    position: absolute;
-    left: 43px;
-    top: 0;
-    &:after {
-      position: absolute;
-      left: 8px;
-      top: 4px;
-      @include my-sprite($-like);
-    }
-  }
-  &:after {
-    content: '';
-    display: block;
-  }
+	height: 40px;
+	font-size: 0;
+	&__like {
+		position: absolute;
+		left: 43px;
+		top: 0;
+		&:after {
+			position: absolute;
+			left: 8px;
+			top: 4px;
+			@include my-sprite($-like);
+		}
+	}
+	&:after {
+		content: '';
+		display: block;
+	}
 }
 
+.social-link__fb{
+	&:after {
+		margin: 9px auto;
+		@include my-sprite($-fb);
+	}
+	&:hover{
+		&:after {
+			@include my-sprite($-fb-hover);
+		}
+	}
+}
 
 .social-link__vk {
-  &:after {
-    @include my-sprite($-vk);
-    margin: 13px auto;
-  }
-  &:hover{
-    &:after {
-      @include my-sprite($-vk-hover);
-    }
-  }
+	&:after {
+		@include my-sprite($-vk);
+		margin: 13px auto;
+	}
+	&:hover{
+		&:after {
+			@include my-sprite($-vk-hover);
+		}
+	}
 }
 .social-link__tw{
-  &:after {
-    margin: 12px auto;
-    @include my-sprite($-tw);
-  }
-  &:hover{
-    &:after {
-      @include my-sprite($-tw-hover);
-    }
-  }
+	&:after {
+		margin: 12px auto;
+		@include my-sprite($-tw);
+	}
+	&:hover{
+		&:after {
+			@include my-sprite($-tw-hover);
+		}
+	}
 }
-.social-link__fb{
-  &:after {
-    margin: 9px auto;
-    @include my-sprite($-fb);
-  }
-  &:hover{
-    &:after {
-      @include my-sprite($-fb-hover);
-    }
-  }
-}
+
+
 
