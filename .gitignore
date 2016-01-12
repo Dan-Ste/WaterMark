@@ -1,3 +1,5 @@
+php/vendor
+php/uploads
 .sass-cache
 app/bower
 node_modules
@@ -5,3 +7,4 @@ node_modules
 .idea/
 .DS_Store
 php/vendor
+.DS_Store

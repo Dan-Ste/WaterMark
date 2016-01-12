@@ -2,5 +2,21 @@
   "name": "WaterMark",
   "dependencies": {
     "normalize-css": "normalize.css#~3.0.3"
-  }
+  },
+  "homepage": "https://github.com/Dan-Ste/WaterMark",
+  "authors": [
+    "Muxacuk <m-izmaylov@inbox.ru>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "dist/bower",
+    "test",
+    "tests"
+  ]
 }
