@@ -1,3 +1,3 @@
 require('./partials/test')();
-require('./partials/opacity-slider')();
+require('./partials/opacity-slider');
 
