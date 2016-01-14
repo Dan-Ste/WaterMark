@@ -8,20 +8,23 @@ function addlistenersForuploadFile() {
     dataType: 'json',
     url: window.location.href + 'php/actions/mainFileUpload.php',
     done: function (e,data) {
-       console.log(data.result);
+       $('.viewport-inner__main-image').attr('src',data.result);
     }
   });
 
-  $('#file_mark').fileupload(
-    {
+  $('#file_mark').fileupload({
     dataType: 'json',
     url: window.location.href + 'php/actions/markFileUpload.php',
     done: function (e,data) {
-       console.log(data.result);
+      $.each(data.result, function (varName,val) {
+        if(varName == 'path'){
+          $('.viewport-inner__water-mark img').attr('src',val);
+        }else{
+          $('.viewport-inner__water-mark img').css(varName,val);
+        }
+      });
     }
-    }
-  );
-  console.log(window.location.href);
+  });
 }
 
 module.exports = addlistenersForuploadFile;

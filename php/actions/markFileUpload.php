@@ -6,16 +6,16 @@
   $file = $_FILES['file_mark'];
   if(strstr($file['type'], 'image') && !$file['error']){
    session_start();
-    for($i = 0 ,$path = "../uploads/mark/$i".$file['name']; file_exists($path); $i++)
-      $path = "../uploads/mark/$i".$file['name'];
+    for($i = 0 ,$path = "uploads/mark/$i".$file['name']; file_exists('../'.$path); $i++)
+      $path = "uploads/mark/$i".$file['name'];
 
-    if(move_uploaded_file($file['tmp_name'], $path)){
-      $_SESSION['pathToMarkFile'] = $path;
+    if(move_uploaded_file($file['tmp_name'], '../'.$path)){
+      $_SESSION['pathToMarkFile'] = '../'.$path;
 
-      $arr = array('path' =>"../php/uploads/main/$i".$file['name']);
+      $arr = array('path' =>'php/'.$path);
 
                         $pathToMain = $_SESSION['pathToMainFile'];
-                        $pathToMark = $_SESSION['pathToMarkFile'];
+                        $pathToMark = '../'.$path;
                       $img = ImageWorkshop::initFromPath($pathToMain);
                       $mark = ImageWorkshop::initFromPath($pathToMark);
                         $ih = $img->getHeight();
