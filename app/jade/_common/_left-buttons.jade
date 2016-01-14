@@ -8,7 +8,7 @@
         };
       each value, key in lang
         li.language-list__item
-          a(href="#" class='language-link__#{key}' ).language-link= key
+          a(href="#" class='language-link__#{key}').language-link= key
   .socials-like
     ul.social-list
       -
@@ -19,7 +19,7 @@
         };
       each value, key in socials
         li.social-list__item
-          a(href="#" class='goodshare social-link__#{key}' data-type="#{key}").social-link= key
+          a(href="#" class='social-link__#{key}' id="#{key}").social-link= key
       li.social-list__item
         a(href="#").social-link.social-link__like like
 
