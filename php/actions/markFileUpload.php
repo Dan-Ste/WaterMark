@@ -13,6 +13,7 @@
       $_SESSION['pathToMarkFile'] = '../'.$path;
 
       $arr = array('path' =>'php/'.$path);
+      $arr['name'] = $file['name'];
 
                         $pathToMain = $_SESSION['pathToMainFile'];
                         $pathToMark = '../'.$path;
@@ -22,16 +23,15 @@
                         $iw = $img->getWidth();
                         $mh = $mark->getHeight();
                         $mw = $mark->getWidth();
-                        $ch = 652/$ih;
-                        $cw = 534/$iw;
-
-                        $_SESSION['coef'] = min($cw,$ch,1);
-
-                        if($ch < $ch && $iw>$mw) {
-                          $arr['height'] = $mh * 652/$ih;
-                        }elseif($ih>$mh) {
-                          $arr['width'] = $mw * 534/$iw;
-                        }
+                        $coef_hor = 534/$ih;
+                        $coef_wert = 652/$iw;
+                        $coef = min($coef_wert,$coef_hor,1);
+                        $_SESSION['coef'] = 1/$coef;
+                          if($mw/$mh < $iw/$ih) {
+                            $arr['height'] = min($mh * $coef, $ih * $coef);
+                          }else {
+                            $arr['width'] = min($mw * $coef, $iw * $coef);
+                          }
     }
   echo json_encode($arr);
   }

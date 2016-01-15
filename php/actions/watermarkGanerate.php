@@ -15,10 +15,11 @@
   $left = $_GET['left']*$coef;
   $top = $_GET['top']*$coef;
   $opacity = $_GET['opacity'];
-  $margin = $_GET['margin']*$coef;
+  $margin_bottom = $_GET['margin_bottom']*$coef;
+  $margin_right = $_GET['margin_right']*$coef;
   $type = $_GET['type'];
 
-  $mark->opacity(100);
+  $mark->opacity($opacity*100);
 
   if ($type == 'tile') {
 
@@ -33,8 +34,8 @@
     if($iw < $mw) {
       $mark->resizeInPixel($iw, null, true);
     }
-    for ($newTop = $top ; $newTop < $ih; $newTop = $newTop+$mh+$margin ) { 
-      for ($newLeft = $left ; $newLeft < $iw; $newLeft = $newLeft+$mw+$margin ) { 
+    for ($newTop = $top ; $newTop < $ih; $newTop = $newTop+$mh+$margin_bottom ) { 
+      for ($newLeft = $left ; $newLeft < $iw; $newLeft = $newLeft+$mw+$margin_right ) { 
         $img->addLayerOnTop($mark, $newLeft, $newTop, 'LT');
         $img = $img->getResult();
         $img = ImageWorkshop::initFromResourceVar($img);

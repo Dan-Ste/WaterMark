@@ -8,7 +8,21 @@ function addlistenersForuploadFile() {
     dataType: 'json',
     url: window.location.href + 'php/actions/mainFileUpload.php',
     done: function (e,data) {
-       $('.viewport-inner__main-image').attr('src',data.result);
+      console.log('Выполнено');
+    },
+    add: function (e,data) {
+      data.submit()
+        .success(
+            function (data){
+              console.log('загружено изображение ' + data.name);
+              $('.viewport-inner__main-image').attr('src',data.path);
+            }
+        )
+        .error(
+          function (jqXHR, textStatus, errorThrown){
+            console.log(errorThrown);
+          }
+        );     
     }
   });
 
@@ -16,13 +30,27 @@ function addlistenersForuploadFile() {
     dataType: 'json',
     url: window.location.href + 'php/actions/markFileUpload.php',
     done: function (e,data) {
-      $.each(data.result, function (varName,val) {
-        if(varName == 'path'){
-          $('.viewport-inner__water-mark img').attr('src',val);
-        }else{
-          $('.viewport-inner__water-mark img').css(varName,val);
-        }
-      });
+      console.log('Выполнено')
+    },
+    add: function (e,data) {
+      data.submit()
+        .success(
+            function (data){
+              console.log('загружено изображение ' , data.name);
+              $('.viewport-inner__water-mark img').attr('src',data.path);
+              if('width' in data){
+                $('.viewport-inner__water-mark img').css('width', data.width);
+              }else 
+                if('height' in data){
+                  $('.viewport-inner__water-mark img').css('height', data.height);
+                }
+            }
+        )
+        .error(
+          function (jqXHR, textStatus, errorThrown){
+            console.log(errorThrown);
+          }
+        );  
     }
   });
 }

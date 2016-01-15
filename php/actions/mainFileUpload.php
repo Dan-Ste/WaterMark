@@ -10,6 +10,8 @@
 			$_SESSION['pathToMainFile'] = '../'.$path;
       		$_SESSION['type'] = $file['type'];
 		}
+		$arr = array('path' =>'php/'.$path);
+		$arr['name'] = $file['name'];
 	}
-	echo json_encode('php/'.$path);
+	echo json_encode($arr);
 ?>
