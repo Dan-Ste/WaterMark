@@ -1,6 +1,4 @@
 php/vendor
-php/uploads/main/
-php/uploads/mark/
 .sass-cache
 app/bower
 node_modules

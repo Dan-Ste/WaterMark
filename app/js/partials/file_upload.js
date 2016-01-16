@@ -20,9 +20,9 @@ function addlistenersForuploadFile() {
         )
         .error(
           function (jqXHR, textStatus, errorThrown){
-            console.log(errorThrown);
+            alert(errorThrown);
           }
-        );     
+        );
     }
   });
 
@@ -40,17 +40,18 @@ function addlistenersForuploadFile() {
               $('.viewport-inner__water-mark img').attr('src',data.path);
               if('width' in data){
                 $('.viewport-inner__water-mark img').css('width', data.width);
-              }else 
+              }else
                 if('height' in data){
                   $('.viewport-inner__water-mark img').css('height', data.height);
                 }
+
             }
         )
         .error(
           function (jqXHR, textStatus, errorThrown){
-            console.log(errorThrown);
+            alert(errorThrown);
           }
-        );  
+        );
     }
   });
 }

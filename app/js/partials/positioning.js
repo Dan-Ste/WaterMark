@@ -1,21 +1,24 @@
 var $ = require('jquery');
 require('jquery-ui/draggable');
 
-  var currentAxis;
-  var step = 1;
-  var waterMarkImg = $('.viewport-inner__water-mark');
-  var waterMarkImgWidth = waterMarkImg.width();
-  var waterMarkImgHeight = waterMarkImg.height();
-  var viewportInnerWidth = $('.view-port-inner__wrapper').width();
-  var viewportInnerHeight = $('.view-port-inner__wrapper').height();
-  var triggerXUp = $('.position-control-X .trigger__up');
-  var triggerXDown = $('.position-control-X .trigger__down');
-  var triggerYUp = $('.position-control-Y .trigger__up');
-  var triggerYDown = $('.position-control-Y .trigger__down');
-  var indicatorX = $('#position-control-X');
-  var indicatorY = $('#position-control-Y');
-  var maxX = viewportInnerWidth - waterMarkImgWidth;
-  var maxY = viewportInnerHeight - waterMarkImgHeight;
+  var currentAxis,
+  step = 1,
+  waterMarkImg = $('.viewport-inner__water-mark'),
+  waterMarkImgWidth = waterMarkImg.width(),
+  waterMarkImgHeight = waterMarkImg.height(),
+  viewportInnerWidth = $('.view-port-inner__wrapper').width(),
+  viewportInnerHeight = $('.view-port-inner__wrapper').height(),
+  triggerXUp = $('.position-control-X .trigger__up'),
+  triggerXDown = $('.position-control-X .trigger__down'),
+  triggerYUp = $('.position-control-Y .trigger__up'),
+  triggerYDown = $('.position-control-Y .trigger__down'),
+  indicatorX = $('#position-control-X'),
+  indicatorY = $('#position-control-Y'),
+  maxX = viewportInnerWidth - waterMarkImgWidth,
+  maxY = viewportInnerHeight - waterMarkImgHeight;
+
+  console.log('waterMarkImgWidth: ' + waterMarkImgWidth, 'waterMarkImgHeight: ' + waterMarkImgHeight,
+              'maxX: ' + maxX, 'maxY: ' + maxY);
 
 function changePositionsWithTrigger(event) {
   currentCoord = parseInt(waterMarkImg.css(event.data.property));
