@@ -3,7 +3,7 @@ var $ = require('jquery');
 require('jquery-ui/slider');
 //__Cache DOM
 var sliderOpacity = $("#sliderOpacity"),
-		image = $("#image__mark");
+		image = $(".viewport-inner__water-mark");
 
 function opacitySlider() {
 	//__Setting Slider Parameters
