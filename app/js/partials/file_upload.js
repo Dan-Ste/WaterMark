@@ -38,12 +38,10 @@ function addlistenersForuploadFile() {
             function (data){
               console.log('загружено изображение ' , data.name);
               $('.viewport-inner__water-mark img').attr('src',data.path);
-              if('width' in data){
-                $('.viewport-inner__water-mark img').css('width', data.width);
-              }else 
-                if('height' in data){
-                  $('.viewport-inner__water-mark img').css('height', data.height);
-                }
+              $('.viewport-inner__water-mark img').css({
+                'width': data.width,
+                'height': data.height
+              });
             }
         )
         .error(

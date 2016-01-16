@@ -15,13 +15,13 @@
   $left = $_GET['left']*$coef;
   $top = $_GET['top']*$coef;
   $opacity = $_GET['opacity'];
-  $margin_bottom = $_GET['margin_bottom']*$coef;
-  $margin_right = $_GET['margin_right']*$coef;
   $type = $_GET['type'];
 
   $mark->opacity($opacity*100);
 
   if ($type == 'tile') {
+    $margin_bottom = $_GET['margin_bottom']*$coef;
+    $margin_right = $_GET['margin_right']*$coef;
 
     $ih = $img->getHeight();
     $iw = $img->getWidth();
