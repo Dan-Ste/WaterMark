@@ -7,3 +7,5 @@ require('./partials/file_upload')();
 require('./partials/change-mode')();
 
 require('./partials/opacity-slider')();
+
+require('./partials/spinner')();
