@@ -1,13 +1,13 @@
-@import "_layout/_mixins";
-@import "_layout/jquery.ui.slider";
-@import "_layout/_sprite";
-/* --------- adjustment --------- */
-
-@import "_layout/_fonts";
-@import "_layout/_general";
-
+/* --------- vendor --------- */
+@import "_vendor/jquery.ui.spinner";
+@import "_vendor/jquery.ui.slider";
+/* --------- other --------- */
+@import "_other/_mixins";
+@import "_other/_sprite";
+/* --------- base --------- */
+@import "_base/_fonts";
+@import "_base/_general";
 /* --------- sections --------- */
-
 @import "_section/_inputs";
 @import "_section/_positions";
 @import "_section/_opacity";
