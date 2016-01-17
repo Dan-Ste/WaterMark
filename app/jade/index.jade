@@ -8,6 +8,27 @@ html(lang='ru')
     meta(name='viewport' content='width=device-width')
     link(rel="stylesheet", href="bower/normalize-css/normalize.css")
     link(rel="stylesheet" href="css/main.css")
+    // favicons
+    link(rel="apple-touch-icon", sizes="57x57", href="img/favicons/apple-touch-icon-57x57.png")
+    link(rel="apple-touch-icon", sizes="60x60", href="img/favicons/apple-touch-icon-60x60.png")
+    link(rel="apple-touch-icon", sizes="72x72", href="img/favicons/apple-touch-icon-72x72.png")
+    link(rel="apple-touch-icon", sizes="76x76", href="img/favicons/apple-touch-icon-76x76.png")
+    link(rel="apple-touch-icon", sizes="114x114", href="img/favicons/apple-touch-icon-114x114.png")
+    link(rel="apple-touch-icon", sizes="120x120", href="img/favicons/apple-touch-icon-120x120.png")
+    link(rel="apple-touch-icon", sizes="144x144", href="img/favicons/apple-touch-icon-144x144.png")
+    link(rel="apple-touch-icon", sizes="152x152", href="img/favicons/apple-touch-icon-152x152.png")
+    link(rel="apple-touch-icon", sizes="180x180", href="img/favicons/apple-touch-icon-180x180.png")
+    link(rel="icon", type="image/png", href="img/favicons/favicon-32x32.png", sizes="32x32")
+    link(rel="icon", type="image/png", href="img/favicons/android-chrome-192x192.png", sizes="192x192")
+    link(rel="icon", type="image/png", href="img/favicons/favicon-96x96.png", sizes="96x96")
+    link(rel="icon", type="image/png", href="img/favicons/favicon-16x16.png", sizes="16x16")
+    link(rel="manifest", href="img/favicons/manifest.json")
+    link(rel="mask-icon", href="img/favicons/safari-pinned-tab.svg", color="#5bbad5")
+    meta(name="apple-mobile-web-app-title", content="WaterMark")
+    meta(name="application-name", content="WaterMark")
+    meta(name="msapplication-TileColor", content="#2b5797")
+    meta(name="msapplication-TileImage", content="img/favicons/mstile-144x144.png")
+    meta(name="theme-color", content="#ffffff")
     title WaterMark
   body
     //блок кнопок слева
@@ -19,7 +40,7 @@ html(lang='ru')
           .veiwport
             //блок просмотра
             .veiwport-title
-              h1.title Генератор водяных знаков
+              h1(data-lang='["Генератор водяных знаков", "Watermark generator"]').title Генератор водяных знаков
             .veiwport-inner
               .view-port-inner__wrapper
                 .viewport-inner__water-mark
@@ -28,7 +49,7 @@ html(lang='ru')
           .settings
             //блок настройки
             .settings-title
-              h2.title Настройки
+              h2(data-lang='["Настройки", "Settings"]').title Настройки
             ul.settings-list
               li.settings-item
                 //блок инпутов
@@ -46,11 +67,10 @@ html(lang='ru')
                 //блок кнопок
                 .settings-buttons
                   .settings-wrapper-buttons
-                    button.settings-button Сброс
-                    button.settings-button.leftpos.settings-button__active Скачать
+                    button(data-lang='["Сброс", "Reset"]').settings-button Сброс
+                    button(data-lang='["Скачать", "Download"]').settings-button.leftpos.settings-button__active Скачать
       footer.footer
         .footer-inner
-          .copyright © 2016. Это сайт LOFTprojectTEAM , пожалуйста, не копируйте и не воруйте его
-    script(src="https://cdn.jsdelivr.net/g/jquery@1.11.3,jquery.goodshare.js@3.2.4")
+          .copyright(data-lang='["© 2016. Это сайт LOFTprojectTEAM, пожалуйста, не копируйте и не воруйте его", "© 2016. London is the capital of Great Britain"]') © 2016. Это сайт LOFTprojectTEAM, пожалуйста, не копируйте и не воруйте его
     script(src='js/main.js')
 
