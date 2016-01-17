@@ -1,13 +1,5 @@
-require('./partials/change-mode')();
+require('./partials/opacity-slider')();
 
 require('./partials/file_upload')();
 
-require('./partials/opacity-slider')();
-
-require('./partials/positioning')();
-
-require('./partials/switchLanguages')();
-
-require('./partials/share')();
-
-require('./partials/file_download')();
+require('./partials/clear')();

@@ -77,6 +77,9 @@ function changeModeModul() {
     waterMarkWrapper.css('left', 0);
     waterMarkWrapper.css('top', 0);
   }
+  return {
+    modOne : _modOne
+  }
 }
 
 module.exports = changeModeModul;
