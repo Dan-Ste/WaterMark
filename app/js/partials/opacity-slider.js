@@ -1,6 +1,26 @@
 var $ = require('jquery');
 require('jquery-ui/slider');
 
+function opacitySlider() {
+  //__Cache DOM
+  var sliderOpacity = $("#sliderOpacity"),
+      image = $(".viewport-inner__water-mark");
+ //__Setting Slider Parameters
+sliderOpacity.slider({
+  min: 0,
+  max: 100,
+  value: 50,
+  slide: function (event, ui) {
+   //__Change Opacity Value in WaterMark Image
+   image.css('opacity',(100 - sliderOpacity.slider("value")) / 100);
+  }
+ });
+sliderOpacity.slider( "option", "disabled", true );
+}
+module.exports = opacitySlider;
+/*var $ = require('jquery');
+require('jquery-ui/slider');
+
 var opacitySlider = (function () {
 	"use strict";
 //__Cache DOM
@@ -15,6 +35,7 @@ var opacitySlider = (function () {
 		_startVal(startValue);
 		_sliderParams(startValue);
 		slider.on("slide",_changeValue);
+		_disableSlider();
 	}
 //__Set The starting Opacity for Image
 	function _startVal (startValue) {
@@ -33,6 +54,10 @@ var opacitySlider = (function () {
 		var newVal = ui.value / 100;
 		img.css('opacity', newVal);
 	}
+//Disabling
+	function _disableSlider () {
+		slider.slider( "option", "disabled", true );
+	}
 //__Public Methods
 	return {
 		init : init
@@ -40,3 +65,4 @@ var opacitySlider = (function () {
 }());
 
 module.exports = opacitySlider.init(55);
+*/
