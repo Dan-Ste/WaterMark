@@ -38,6 +38,7 @@ function changeModeModul() {
       'margin-right': 0,
     })
 
+     $('.viewport-inner__water-mark').data('reg','single');
     positioning();
   }
 
@@ -59,6 +60,8 @@ function changeModeModul() {
 
     waterMarkWrapper.css('left', 0);
     waterMarkWrapper.css('top', 0);
+
+    $('.viewport-inner__water-mark').data('reg',"tile");
   }
 
   function _changeMode(e) { // переключение режима ватермарки
