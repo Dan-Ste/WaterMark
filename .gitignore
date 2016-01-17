@@ -5,5 +5,5 @@ node_modules
 /dist
 .idea/
 .DS_Store
-app/scss/_layout/_sprite.scss
+app/scss/_other/_sprite.scss
 
