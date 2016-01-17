@@ -47,7 +47,7 @@
 .social-list{
 	margin-left: -43px;
 	position: relative;
-	@include transition(all 0.8s ease-out);
+	@include transition(all 0.6s ease-out);
 	&:hover{
 		margin-left: 0;
 	}

@@ -21,7 +21,7 @@ var path = {
       img: ['./app/img/**/*.+(png|jpg|jpeg|gif|svg)', '!./app/img/sprite/**/*.+(png|jpg|jpeg|gif|svg)'],
       sprite: './app/img/sprite/**/*.png',
       fonts: './app/fonts/**/*.*',
-      spriteScss: './app/scss/_layout/',
+      spriteScss: './app/scss/_other/',
       js: './app/js/main.js'
     },
     dist: {
