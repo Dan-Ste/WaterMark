@@ -1,6 +1,10 @@
 var $ = require('jquery');
 require('jquery-ui/jquery-ui');
 require('blueimp-file-upload/js/jquery.fileupload');
+var changeMode = require('./change-mode');
+var positioning = require('./positioning');
+var enable = require('./disabled.js');
+
 
 function addlistenersForuploadFile() {
 
@@ -16,6 +20,7 @@ function addlistenersForuploadFile() {
             function (data){
               console.log('загружено изображение ' + data.name);
               $('.viewport-inner__main-image').attr('src',data.path);
+
             }
         )
         .error(
@@ -38,7 +43,9 @@ function addlistenersForuploadFile() {
             function (data){
               console.log('загружено изображение ' , data.name);
               $('.viewport-inner__water-mark img').attr('src',data.path);
-
+              changeMode();
+              positioning();
+              $("#sliderOpacity").slider( "option", "disabled", false );
               $('.viewport-inner__water-mark img').css({
                 'width': data.width,
                 'height': data.height
