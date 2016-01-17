@@ -26,12 +26,10 @@
             each item in positions
               li.settings-position-control-list__item
                 div(class='position-control-#{item}')
-                  .position-control-title= item
-                  input(type = "text" id='position-control-#{item}' maxlength='3'
+                  label.position-control-title= item
+                  input(type = "text" id='position-control-#{item}' name="value" maxlength='3'
                   value='0').position-control-value
-                  .position-control-trigger
-                    .trigger.trigger__up
-                    .trigger.trigger__down
+
       .settings-position-extra
         ul.settings-position-extra-list
           - var extras = [ 'one', 'pattern' ]
