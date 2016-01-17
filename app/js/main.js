@@ -1,12 +1,10 @@
-require('./partials/test')();
-
-require('./partials/positioning')();
+require('./partials/change-mode')();
 
 require('./partials/file_upload')();
 
-require('./partials/change-mode')();
-
 require('./partials/opacity-slider')();
+
+require('./partials/positioning')();
 
 require('./partials/switchLanguages')();
 

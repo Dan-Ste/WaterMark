@@ -17,7 +17,9 @@ html, body{
 }
 body{
 	background-image: url('../img/Background-body.jpg');
-	background: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 
 .wrapper{
@@ -79,6 +81,7 @@ $footerHeight: 60px;
 }
 
 .viewport-inner__water-mark {
+  cursor: grab;
   position: absolute;
   float: left;
   font-size: 0;

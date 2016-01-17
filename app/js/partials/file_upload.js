@@ -20,9 +20,9 @@ function addlistenersForuploadFile() {
         )
         .error(
           function (jqXHR, textStatus, errorThrown){
-            console.log(errorThrown);
+            alert(errorThrown);
           }
-        );     
+        );
     }
   });
 
@@ -38,6 +38,7 @@ function addlistenersForuploadFile() {
             function (data){
               console.log('загружено изображение ' , data.name);
               $('.viewport-inner__water-mark img').attr('src',data.path);
+
               $('.viewport-inner__water-mark img').css({
                 'width': data.width,
                 'height': data.height
@@ -46,9 +47,9 @@ function addlistenersForuploadFile() {
         )
         .error(
           function (jqXHR, textStatus, errorThrown){
-            console.log(errorThrown);
+            alert(errorThrown);
           }
-        );  
+        );
     }
   });
 }
