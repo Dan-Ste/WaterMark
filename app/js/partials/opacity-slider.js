@@ -9,7 +9,7 @@ function opacitySlider() {
 sliderOpacity.slider({
   min: 0,
   max: 100,
-  value: 50,
+  value: 0,
   slide: function (event, ui) {
    //__Change Opacity Value in WaterMark Image
    image.css('opacity',(100 - sliderOpacity.slider("value")) / 100);
