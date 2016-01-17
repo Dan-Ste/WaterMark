@@ -81,12 +81,12 @@ $footerHeight: 60px;
 }
 
 .viewport-inner__water-mark {
+  cursor: grab;
   position: absolute;
   float: left;
   font-size: 0;
   top: 0;
   left: 0;
-  cursor: pointer;
 }
 
 .viewport-inner__main-image {

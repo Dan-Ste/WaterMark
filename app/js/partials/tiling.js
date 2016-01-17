@@ -59,37 +59,45 @@ function init() {
   function changeGutterWithInput(event) {
     var max = event.data.max;
     var axis = event.data.axis;
+    var wrapper = $('.viewport-inner__water-mark');
+    var watermark = $('.viewport-inner__water-mark-image');
+
     if(axis === 'Y') {
-      if($(this).val() > max) {
-        watermarkWrapper.height(countHeight * (watermarkHeight + max));
+      if(indicatorX.spinner('value') > max) {
+
+        wrapper.height(countHeight * (watermarkHeight + max));
         widthViewMap.css('height', max);
-        $('.viewport-inner__water-mark-image').css({'margin-bottom': max})
-        $(this).val(max);
-      } else if ($(this).val() < 0) {
-        watermarkWrapper.height(countHeight * watermarkHeight);
+        watermark.css({'margin-bottom': max})
+        indicatorX.spinner('value', max);
+
+      } else if (indicatorX.spinner('value') < 0) {
+        wrapper.height(countHeight * watermarkHeight);
         widthViewMap.css('height', 0);
-        $('.viewport-inner__water-mark-image').css({'margin-bottom': 0})
-        $(this).val(0);
+        watermark.css({'margin-bottom': 0})
+        indicatorX.spinner('value', 0);
+
       } else {
-        watermarkWrapper.height(countHeight * (watermarkHeight + $(this).val()));
-        $('.viewport-inner__water-mark-image').css({ 'margin-bottom': $(this).val() });
-        widthViewMap.css('height', $(this).val());
+        wrapper.height(countHeight * (watermarkHeight + indicatorX.spinner('value')));
+        watermark.css({ 'margin-bottom': indicatorX.spinner('value') });
+        widthViewMap.css('height', indicatorX.spinner('value'));
       }
     } else if(axis === 'X') {
-      if($(this).val() > max) {
-        watermarkWrapper.width(countWidth * (watermarkWidth + max));
+      if(indicatorY.spinner('value') > max) {
+        wrapper.width(countWidth * (watermarkWidth + max));
         heightViewMap.css('width', max);
-        $('.viewport-inner__water-mark-image').css({'margin-right': max})
-        $(this).val(max);
-      } else if ($(this).val() < 0) {
-        watermarkWrapper.width(countWidth * watermarkWidth);
+        watermark.css({'margin-right': max})
+        indicatorY.spinner('value', max);
+
+      } else if (indicatorY.spinner('value') < 0) {
+        wrapper.width(countWidth * watermarkWidth);
         heightViewMap.css('width', 0);
-        $('.viewport-inner__water-mark-image').css({'margin-right': 0})
-        $(this).val(0);
+        watermark.css({'margin-right': 0})
+        indicatorY.spinner('value', 0);
+
       } else {
-        watermarkWrapper.width(countWidth * (watermarkWidth + $(this).val()));
-        $('.viewport-inner__water-mark-image').css({ 'margin-right': $(this).val() });
-        heightViewMap.css('width', $(this).val());
+        wrapper.width(countWidth * (watermarkWidth + indicatorY.spinner('value')));
+        watermark.css({ 'margin-right': indicatorY.spinner('value') });
+        heightViewMap.css('width', indicatorY.spinner('value'));
       }
     }
   }
