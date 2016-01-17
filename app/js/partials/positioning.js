@@ -1,5 +1,6 @@
 var $ = require('jquery');
 require('jquery-ui/draggable');
+require('jquery-ui/spinner');
 
 
 function init() {
@@ -11,35 +12,29 @@ function init() {
       waterMarkImgHeight = waterMarkImg.height(),
       viewportInnerWidth = $('.view-port-inner__wrapper').width(),
       viewportInnerHeight = $('.view-port-inner__wrapper').height(),
-      triggerXUp = $('.mode-one .position-control-X .trigger__up'),
-      triggerXDown = $('.mode-one .position-control-X .trigger__down'),
-      triggerYUp = $('.mode-one .position-control-Y .trigger__up'),
-      triggerYDown = $('.mode-one .position-control-Y .trigger__down'),
       indicatorX = $('.mode-one #position-control-X'),
       indicatorY = $('.mode-one #position-control-Y'),
       maxX = viewportInnerWidth - waterMarkImgWidth,
       maxY = viewportInnerHeight - waterMarkImgHeight;
 
-  function changePositionsWithTrigger(event) {
-    currentCoord = parseInt(waterMarkImg.css(event.data.property));
-    var property = event.data.property;
-    var direction = event.data.direction;
-
-    if(property === 'left') {
-      currentCoord = direction === 'left' ? currentCoord + step : currentCoord - step;
-      // Check if water mark falls to the viewport of our main image
-      if( currentCoord >= 0 && currentCoord <= maxX ) {
-        indicatorX.val(currentCoord);
-        waterMarkImg.css({'left': currentCoord});
-      }
-    } else if (property === 'top') {
-      currentCoord = direction === 'up' ? currentCoord - step  : currentCoord + step;
-      if( currentCoord >= 0 && currentCoord <= maxY ) {
-        indicatorY.val(currentCoord);
-        waterMarkImg.css({'top': currentCoord});
-      }
+  indicatorX.spinner({
+    min: 0,
+    max: maxX,
+    spin: function(event, ui) {
+      waterMarkImg.css({'left': ui.value});
     }
-  }
+  });
+
+  indicatorY.spinner({
+    min: 0,
+    max: maxY,
+    spin: function(event, ui) {
+      waterMarkImg.css({'top': ui.value});
+    }
+  });
+
+  indicatorX.spinner( "value", 0 );
+  indicatorY.spinner( "value", 0 );
 
   // Prevent type not a numbers values
   function typeOnlyNumbers(event) {
@@ -110,18 +105,8 @@ function init() {
     }
   });
 
-
-  // Setup event listiners on trigger buttons which control water mark image positioning.
-  // We pass parameters to the changePositionsWithTrigger function with the necessary information
-  triggerXUp.off('click');
-  triggerXDown.off('click');
-  triggerYUp.off('click');
-  triggerYDown.off('click');
-
-  triggerXUp.on('click', {property: 'left', direction: 'left'},  changePositionsWithTrigger);
-  triggerXDown.on('click', {property: 'left', direction: 'right'},  changePositionsWithTrigger);
-  triggerYUp.on('click', {property: 'top', direction: 'up'},  changePositionsWithTrigger);
-  triggerYDown.on('click', {property: 'top', direction: 'down'},  changePositionsWithTrigger);
+  indicatorX.off('keyup');
+  indicatorY.off('keyup');
 
   indicatorX.on('keypress', typeOnlyNumbers);
   indicatorX.on('keyup', {property: 'left', max: maxX}, changePositionsWithInput);

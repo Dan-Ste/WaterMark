@@ -6,8 +6,6 @@ function changeModeModul() {
   //__Cache DOM
   var patternMapBlock = $('.settings-position-map-pattern-list'),
       oneMapInput = $('.settings-position-map-list__item').children('input'),
-      inputX = $('#position-control-X'),
-      inputY = $('#position-control-Y'),
       controlWrapper = $('.settings-position-control'),
       firstInputMap = $('#input-map0'),
       heightViewMap =  $('.settings-position-map-pattern-vertical'),
@@ -28,10 +26,7 @@ function changeModeModul() {
     patternMapBlock.css('display', 'none');
     firstInputMap.prop('checked',true);
     controlWrapper.removeClass('mode-pattern').addClass('mode-one');
-    inputX.val('0');
-    inputY.val('0');
     titleInput.removeClass('position-control-title__patern');
-
 
     waterMarkWrapper.draggable("option", "containment", ".view-port-inner__wrapper");
     waterMarkWrapper.width('auto');
@@ -56,6 +51,7 @@ function changeModeModul() {
 
     waterMarkImg.siblings().remove();
 
+
     tiling();
     positioning();
 
@@ -66,7 +62,6 @@ function changeModeModul() {
   }
 
   function _changeMode(e) { // переключение режима ватермарки
-
     var buttonMode = $(e.target).parent('li'),
         buttonBlock = $(this);
 

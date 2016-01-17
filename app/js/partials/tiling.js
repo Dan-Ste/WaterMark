@@ -9,22 +9,43 @@ function init() {
       watermarkWidth = element.width(),
       watermarkHeight = element.height(),
       watermarkWrapper = $('.viewport-inner__water-mark'),
-      triggerXUp = $('.mode-pattern .position-control-X .trigger__up'),
-      triggerXDown = $('.mode-pattern .position-control-X .trigger__down'),
-      triggerYUp = $('.mode-pattern .position-control-Y .trigger__up'),
-      triggerYDown = $('.mode-pattern .position-control-Y .trigger__down'),
       indicatorX = $('.mode-pattern #position-control-X'),
       indicatorY = $('.mode-pattern #position-control-Y'),
       heightViewMap =  $('.settings-position-map-pattern-vertical'),
       widthViewMap =  $('.settings-position-map-pattern-horizontal'),
       countWidth = Math.round(wrapperWidth / watermarkWidth),
       countHeight = Math.round(wrapperHeight / watermarkHeight),
+      maxGutterX = wrapperWidth - watermarkWidth,
+      maxGutterY = wrapperHeight - watermarkHeight,
       i = 0,
       j = 0;
 
+  indicatorX.spinner({
+    min: 0,
+    max: maxGutterY,
+    spin: function(event, ui) {
+      watermarkWrapper.height(countHeight * (watermarkHeight + ui.value));
+      widthViewMap.css('height', ui.value);
+      $('.viewport-inner__water-mark-image').css({'margin-bottom': ui.value})
+    }
+  });
+
+  indicatorY.spinner({
+    min: 0,
+    max: maxGutterX,
+    spin: function(event, ui) {
+      watermarkWrapper.width(countWidth * (watermarkWidth + ui.value));
+      heightViewMap.css('width', ui.value);
+      $('.viewport-inner__water-mark-image').css({'margin-right': ui.value})
+    }
+  });
+
+  indicatorX.spinner( "value", 0 );
+  indicatorY.spinner( "value", 0 );
+
   function createTiling() {
-    watermarkWrapper.width(countWidth * (watermarkWidth + marginRight));
-    watermarkWrapper.height(countHeight * (watermarkHeight + marginBottom));
+    watermarkWrapper.width(countWidth * (watermarkWidth + indicatorX.spinner('value') ));
+    watermarkWrapper.height(countHeight * (watermarkHeight + indicatorY.spinner('value') ));
 
     for(i, j = countWidth + countHeight; i < j; i++) {
       clone = element.clone();
@@ -33,53 +54,52 @@ function init() {
     }
   }
 
-  var marginBottom = parseInt( $('.viewport-inner__water-mark-image').css('margin-bottom') );
-  var marginRight = parseInt( $('.viewport-inner__water-mark-image').css('margin-right') );
-
   createTiling();
 
-  console.log(marginBottom, marginRight)
-  indicatorX.val( marginBottom );
-  indicatorY.val( marginRight );
+  function changeGutterWithInput(event) {
+    var max = event.data.max;
+    var axis = event.data.axis;
+    if(axis === 'Y') {
+      if($(this).val() > max) {
+        watermarkWrapper.height(countHeight * (watermarkHeight + max));
+        widthViewMap.css('height', max);
+        $('.viewport-inner__water-mark-image').css({'margin-bottom': max})
+        $(this).val(max);
+      } else if ($(this).val() < 0) {
+        watermarkWrapper.height(countHeight * watermarkHeight);
+        widthViewMap.css('height', 0);
+        $('.viewport-inner__water-mark-image').css({'margin-bottom': 0})
+        $(this).val(0);
+      } else {
+        watermarkWrapper.height(countHeight * (watermarkHeight + $(this).val()));
+        $('.viewport-inner__water-mark-image').css({ 'margin-bottom': $(this).val() });
+        widthViewMap.css('height', $(this).val());
+      }
+    } else if(axis === 'X') {
+      if($(this).val() > max) {
+        watermarkWrapper.width(countWidth * (watermarkWidth + max));
+        heightViewMap.css('width', max);
+        $('.viewport-inner__water-mark-image').css({'margin-right': max})
+        $(this).val(max);
+      } else if ($(this).val() < 0) {
+        watermarkWrapper.width(countWidth * watermarkWidth);
+        heightViewMap.css('width', 0);
+        $('.viewport-inner__water-mark-image').css({'margin-right': 0})
+        $(this).val(0);
+      } else {
+        watermarkWrapper.width(countWidth * (watermarkWidth + $(this).val()));
+        $('.viewport-inner__water-mark-image').css({ 'margin-right': $(this).val() });
+        heightViewMap.css('width', $(this).val());
+      }
+    }
+  }
 
-  triggerXUp.off('click');
-  triggerXDown.off('click');
-  triggerYUp.off('click');
-  triggerYDown.off('click');
+  indicatorX.off('keyup');
+  indicatorY.off('keyup');
 
+  indicatorX.on('keyup', {axis: 'Y',  max: maxGutterY}, changeGutterWithInput);
+  indicatorY.on('keyup', {axis: 'X', max: maxGutterX}, changeGutterWithInput);
 
-  triggerXUp.on('click', function() {
-    $('.viewport-inner__water-mark-image').css({'margin-bottom': ++marginBottom})
-    indicatorX.val(marginBottom);
-    watermarkWrapper.height(countHeight * (watermarkHeight + marginBottom));
-    widthViewMap.css('height', indicatorX.val());
-  });
-
-  triggerXDown.on('click', function() {
-    $('.viewport-inner__water-mark-image').css({'margin-bottom': --marginBottom})
-    indicatorX.val(marginBottom);
-    watermarkWrapper.height(countHeight * (watermarkHeight - marginBottom));
-    widthViewMap.css('height', indicatorX.val());
-  });
-
-  triggerYUp.on('click', function() {
-    $('.viewport-inner__water-mark-image').css({'margin-right': ++marginRight})
-    indicatorY.val(marginRight);
-    watermarkWrapper.width(countWidth * (watermarkWidth + marginRight));
-    heightViewMap.css('width', indicatorY.val());
-  });
-
-  triggerYDown.on('click', function() {
-    $('.viewport-inner__water-mark-image').css({'margin-right': --marginRight})
-    indicatorY.val(marginRight);
-    watermarkWrapper.width(countWidth * (watermarkWidth - marginRight));
-    heightViewMap.css('width', indicatorY.val());
-  });
-
-
-  // triggerXDown.on('click', {property: 'left', direction: 'right'},  changePositionsWithTrigger);
-  // triggerYUp.on('click', {property: 'top', direction: 'up'},  changePositionsWithTrigger);
-  // triggerYDown.on('click', {property: 'top', direction: 'down'},  changePositionsWithTrigger);
 }
 
 module.exports = init;
