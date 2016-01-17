@@ -1,7 +1,7 @@
 var $ = require('jquery');
 require('./positioning');
 require('./opacity-slider')();
-require('./change-mode');
+var changeMode = require('./change-mode')();
 
 function clear () {
 	$('.clearbutton').on('click', _clearButton);
@@ -23,7 +23,7 @@ function clear () {
     	opacity: '1'
     });
     $("#sliderOpacity").slider({value: 0});
-    changeModeModul.modOne();
+    changeMode.modOne();
 	}
 }
 	
