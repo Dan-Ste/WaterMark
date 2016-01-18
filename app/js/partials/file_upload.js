@@ -21,7 +21,7 @@ function addlistenersForUploadFile() {
               console.log('загружено изображение ' + data.name);
               $('.viewport-inner__main-image').attr('src',data.path);
               $(".settings-inputs-block").css('opacity', '1');
-              $(".clearbutton").css('opacity', '1');
+              $('[name=file_back_name]').val(data.name);
             }
         )
         .error(
@@ -44,6 +44,8 @@ function addlistenersForUploadFile() {
             function (data){
               console.log('загружено изображение ' , data.name);
               $('.viewport-inner__water-mark img').attr('src',data.path);
+              $('[name=file_mark_name]').val(data.name);
+              
               changeMode();
               positioning();
               $("#sliderOpacity").slider( "option", "disabled", false );

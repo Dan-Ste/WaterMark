@@ -5,7 +5,6 @@ function clear () {
 
 		function _clearButton () {
 			require('./positioning');
-			require('./opacity-slider')();
 			var changeMode = require('./change-mode')();
 	    $('#position-control-X').spinner('value', 0);
 	    $('#position-control-Y').spinner('value', 0);
