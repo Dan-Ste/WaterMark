@@ -35,16 +35,12 @@
 .settings-position-map__label{
 	height: 34px;
 	width: 34px;
-	cursor: pointer;
 	background: #DAE1E9;
 	display: inline-block;
 	border-bottom: 1px solid #9FB2C0;
 	border-right: 1px solid #9FB2C0;
 }
-.input-hide:checked +
-.settings-position-map__label{
-	background: #F97E77;
-}
+
 .position-control-value, .position-control-trigger{
 	display: inline-block;
 	font-size: 18px;
@@ -168,18 +164,11 @@ $BorderTriggerHover: 1px solid #2e3641;
 	}
 }
 .extra-icon{
-	cursor: pointer;
 	&-one{
 		@include my-sprite($-mark);
-		&:hover{
-			@include my-sprite($-mark-hover);
-		}
 	}
 	&-pattern{
 		@include my-sprite($-pattern);
-		&:hover{
-			@include my-sprite($-pattern-hover);
-		}
 	}
 }
 
@@ -227,4 +216,26 @@ $BorderTriggerHover: 1px solid #2e3641;
 .viewport-inner__water-mark-image {
   display: block;
   float: left;
+}
+.working{
+	&.input-hide:checked +
+	.settings-position-map__label{
+		background: #F97E77;
+	}
+	&.settings-position-map__label{
+		cursor: pointer;
+	}
+	&.extra-icon{
+		cursor: pointer;
+		&-one{
+			&:hover{
+				@include my-sprite($-mark-hover);
+			}
+		}
+		&-pattern{
+			&:hover{
+				@include my-sprite($-pattern-hover);
+			}
+		}
+	}
 }

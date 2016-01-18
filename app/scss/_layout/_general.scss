@@ -21,7 +21,9 @@ body{
   background-size: cover;
   background-position: center center;
 }
-
+.settings-button{
+	cursor: default !important;
+}
 .wrapper{
 	position: relative;
 	min-height: 100%;
@@ -182,7 +184,7 @@ $SizeTreangle: 13px;
 		background: #F97E77;
 	}
 }
-.clearbutton{
+.clearbutton, .downloadbutton{
 	opacity: 0.5;
 }
 .footer{
@@ -200,4 +202,9 @@ $SizeTreangle: 13px;
       text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     }
   }
+}
+.working-button{
+	&.settings-button{
+		cursor: pointer !important;
+	}
 }
