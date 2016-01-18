@@ -4,6 +4,7 @@ require('blueimp-file-upload/js/jquery.fileupload');
 var changeMode = require('./change-mode');
 var positioning = require('./positioning');
 var enable = require('./disabled.js');
+var enabling = require('./enable.js');
 
 
 function addlistenersForuploadFile() {
@@ -21,7 +22,6 @@ function addlistenersForuploadFile() {
               console.log('загружено изображение ' + data.name);
               $('.viewport-inner__main-image').attr('src',data.path);
               $(".settings-inputs-block").css('opacity', '1');
-              $(".clearbutton").css('opacity', '1');
             }
         )
         .error(
@@ -44,24 +44,14 @@ function addlistenersForuploadFile() {
             function (data){
               console.log('загружено изображение ' , data.name);
               $('.viewport-inner__water-mark img').attr('src',data.path);
+              enabling();
               changeMode();
               positioning();
-              $("#sliderOpacity").slider( "option", "disabled", false );
-              $(".settings-position-extra").css('opacity', '1');
-              $(".settings-position-block__left").css('opacity', '1');
-              $(".settings-position-block__right").css('opacity', '1');
-              $(".settings-opacity__wrap").css('opacity', '1');
-              $(".downloadbutton").css('opacity', '1');
-              $(".input-hide").addClass('working');
-              $(".extra-icon").addClass('working');
-              $(".settings-button").addClass('working-button');
-               $("#file_mark").addClass('working-input');
-              $(".settings-position-map__label").addClass('working');
               $('.viewport-inner__water-mark img').css({
                 'width': data.width,
                 'height': data.height
               });
-            }
+            }             
         )
         .error(
           function (jqXHR, textStatus, errorThrown){

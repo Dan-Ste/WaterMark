@@ -4,18 +4,8 @@ function clear () {
 		
 		function _clearButton () {
 			require('./positioning');
-			require('./opacity-slider')();
 			var changeMode = require('./change-mode')();
-			console.log('возвращаю прозрачность');
-			$(".settings-inputs-block").css('opacity', '0.5');
-	    $(".clearbutton").css('opacity', '0.5');
-	    $(".downloadbutton").css('opacity', '0.5');
-			$(".settings-position-extra").css('opacity', '0.5');
-	    $(".settings-position-block__left").css('opacity', '0.5');
-	    $(".settings-position-block__right").css('opacity', '0.5');
-	    $(".settings-opacity__wrap").css('opacity', '0.5');
-	    console.log('возвращаю положение');
-	    $('#position-control-X').spinner('value', 0);
+			$('#position-control-X').spinner('value', 0);
 	    $('#position-control-Y').spinner('value', 0);
 	    $('.viewport-inner__water-mark').css({
 	    	top: '0',

@@ -28,7 +28,7 @@
                 div(class='position-control-#{item}')
                   label.position-control-title= item
                   input(type = "text" id='position-control-#{item}' name="value" maxlength='3'
-                  value='0').position-control-value
+                  value='0' disabled).position-control-value
       .settings-position-extra
         ul.settings-position-extra-list
           - var extras = [ 'one', 'pattern' ]
