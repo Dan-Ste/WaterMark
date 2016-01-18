@@ -11,3 +11,5 @@ require('./partials/switchLanguages')();
 require('./partials/share')();
 
 require('./partials/file_download')();
+
+require('./partials/exit')();
