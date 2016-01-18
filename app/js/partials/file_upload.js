@@ -6,11 +6,11 @@ var positioning = require('./positioning');
 var enable = require('./disabled.js');
 
 
-function addlistenersForuploadFile() {
+function addlistenersForUploadFile() {
 
   $('#file_back').fileupload({
     dataType: 'json',
-    url: window.location.href + 'php/actions/mainFileUpload.php',
+    url: 'php/actions/mainFileUpload.php',
     done: function (e,data) {
       console.log('Выполнено');
     },
@@ -21,12 +21,12 @@ function addlistenersForuploadFile() {
               console.log('загружено изображение ' + data.name);
               $('.viewport-inner__main-image').attr('src',data.path);
               $(".settings-inputs-block").css('opacity', '1');
-              $(".clearbutton").css('opacity', '1');
+              $('[name=file_back_name]').val(data.name);
             }
         )
         .error(
           function (jqXHR, textStatus, errorThrown){
-            alert(errorThrown);
+            alert('Что по пошло не так, презагрузите страничку и попробуйте снова.');
           }
         );
     }
@@ -34,7 +34,7 @@ function addlistenersForuploadFile() {
 
   $('#file_mark').fileupload({
     dataType: 'json',
-    url: window.location.href + 'php/actions/markFileUpload.php',
+    url: 'php/actions/markFileUpload.php',
     done: function (e,data) {
       console.log('Выполнено')
     },
@@ -44,6 +44,8 @@ function addlistenersForuploadFile() {
             function (data){
               console.log('загружено изображение ' , data.name);
               $('.viewport-inner__water-mark img').attr('src',data.path);
+              $('[name=file_mark_name]').val(data.name);
+              
               changeMode();
               positioning();
               $("#sliderOpacity").slider( "option", "disabled", false );
@@ -72,4 +74,4 @@ function addlistenersForuploadFile() {
   });
 }
 
-module.exports = addlistenersForuploadFile;
+module.exports = addlistenersForUploadFile;

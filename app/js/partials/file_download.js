@@ -11,9 +11,7 @@ function addListenerForFileDownload () {
 			margin_bottom: mark.css('margin-bottom'),
 			margin_right: mark.css('margin-right')
 		};
-		var link = $('<a></a>');
-		link[0].href = 'php/actions/watermarkGanerate.php?'+ $.param(data);
-		link[0].click();
+		window.open('php/actions/watermarkGanerate.php?'+ $.param(data),'_self');
 	});
 }
 module.exports = addListenerForFileDownload;

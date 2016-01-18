@@ -9,3 +9,4 @@ require('./partials/clear')();
 require('./partials/switchLanguages')();
 
 require('./partials/share')();
+
