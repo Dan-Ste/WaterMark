@@ -13,8 +13,8 @@ function init() {
       indicatorY = $('.mode-pattern #position-control-Y'),
       heightViewMap =  $('.settings-position-map-pattern-vertical'),
       widthViewMap =  $('.settings-position-map-pattern-horizontal'),
-      countWidth = Math.round(wrapperWidth / watermarkWidth),
-      countHeight = Math.round(wrapperHeight / watermarkHeight),
+      countWidth = Math.ceil(wrapperWidth / watermarkWidth),
+      countHeight = Math.ceil(wrapperHeight / watermarkHeight),
       maxGutterX = wrapperWidth - watermarkWidth,
       maxGutterY = wrapperHeight - watermarkHeight,
       i = 0,
@@ -44,14 +44,15 @@ function init() {
   indicatorY.spinner( "value", 0 );
 
   function createTiling() {
-    watermarkWrapper.width(countWidth * (watermarkWidth + indicatorX.spinner('value') ));
-    watermarkWrapper.height(countHeight * (watermarkHeight + indicatorY.spinner('value') ));
+    watermarkWrapper.width((countWidth+4) * (watermarkWidth + indicatorX.spinner('value') ));
+    watermarkWrapper.height((countHeight+3) * (watermarkHeight + indicatorY.spinner('value') ));
 
-    for(i, j = countWidth + countHeight; i < j; i++) {
+    for(i, j = (countWidth+4) * (countHeight+3); i < j; i++) {
       clone = element.clone();
 
       watermarkWrapper.append(clone);
     }
+
   }
 
   createTiling();
