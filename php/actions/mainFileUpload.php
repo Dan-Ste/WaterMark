@@ -9,9 +9,10 @@
 		if(move_uploaded_file($file['tmp_name'], '../'.$path)){
 			$_SESSION['pathToMainFile'] = '../'.$path;
       		$_SESSION['type'] = $file['type'];
+
+      		$arr = array('path' =>'php/'.$path);
+			$arr['name'] = $file['name'];
 		}
-		$arr = array('path' =>'php/'.$path);
-		$arr['name'] = $file['name'];
 	}
 	echo json_encode($arr);
 ?>

@@ -1,10 +1,7 @@
 <?php 
 
-  $path = $_SESSION['pathToMainFile'];
   $type = $_SESSION['type'];
    
-if (ob_get_level()) {
-  ob_end_clean();
 
   switch ($type) {
     case 'image/png':
@@ -23,6 +20,6 @@ if (ob_get_level()) {
         imagejpeg($image, null, 100);
       break;
   }
-  }
+
 
 ?>

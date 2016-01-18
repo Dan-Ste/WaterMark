@@ -6,11 +6,11 @@ var positioning = require('./positioning');
 var enable = require('./disabled.js');
 
 
-function addlistenersForuploadFile() {
+function addlistenersForUploadFile() {
 
   $('#file_back').fileupload({
     dataType: 'json',
-    url: window.location.href + 'php/actions/mainFileUpload.php',
+    url: 'php/actions/mainFileUpload.php',
     done: function (e,data) {
       console.log('Выполнено');
     },
@@ -26,7 +26,7 @@ function addlistenersForuploadFile() {
         )
         .error(
           function (jqXHR, textStatus, errorThrown){
-            alert(errorThrown);
+            alert('Что по пошло не так, презагрузите страничку и попробуйте снова.');
           }
         );
     }
@@ -34,7 +34,7 @@ function addlistenersForuploadFile() {
 
   $('#file_mark').fileupload({
     dataType: 'json',
-    url: window.location.href + 'php/actions/markFileUpload.php',
+    url: 'php/actions/markFileUpload.php',
     done: function (e,data) {
       console.log('Выполнено')
     },
@@ -72,4 +72,4 @@ function addlistenersForuploadFile() {
   });
 }
 
-module.exports = addlistenersForuploadFile;
+module.exports = addlistenersForUploadFile;

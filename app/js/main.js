@@ -5,3 +5,5 @@ require('./partials/file_upload')();
 require('./partials/file_download')();
 
 require('./partials/clear')();
+
+require('./partials/switchLanguages')();
