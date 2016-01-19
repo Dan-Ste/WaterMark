@@ -10,3 +10,4 @@ require('./partials/switchLanguages')();
 
 require('./partials/share')();
 
+require('./partials/exit')();

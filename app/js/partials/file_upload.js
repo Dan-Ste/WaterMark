@@ -67,7 +67,7 @@ function addlistenersForUploadFile() {
         )
         .error(
           function (jqXHR, textStatus, errorThrown){
-            alert(errorThrown);
+            console.log(errorThrown);
           }
         );
     }
