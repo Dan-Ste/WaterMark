@@ -39,7 +39,13 @@ function changeModeModul() {
     })
 
      $('.viewport-inner__water-mark').data('reg','single');
-    positioning();
+
+     $($('.extra-icon-one').parent())
+      .addClass('extra-item__active')
+      .siblings()
+      .removeClass('extra-item__active')
+
+    positioning('.extra-item__active');
   }
 
   function _modPattern() { // меняем режим патерна

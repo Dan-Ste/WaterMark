@@ -1,4 +1,5 @@
-var $ = require('jquery');
+var $ = require('jquery'),
+	unloadEventListener = require('./exit');
 
 function addListenerForFileDownload () {
 	$('#download_file').on('click', function (e) {
@@ -10,8 +11,11 @@ function addListenerForFileDownload () {
 			type:  $(mark.parent()).data('reg'),
 			margin_bottom: mark.css('margin-bottom'),
 			margin_right: mark.css('margin-right')
-		};
-		window.open('php/actions/watermarkGanerate.php?'+ $.param(data),'_self');
+		},
+		param = $.param(data);
+		unloadEventListener.off();
+		window.open('php/actions/watermarkGanerate.php?'+ param,'_self');
+		setTimeout(unloadEventListener.on,0);
 	});
 }
 module.exports = addListenerForFileDownload;

@@ -1,20 +1,22 @@
 var $ = require('jquery');
 
-function addListenerForUnload () {
-	window.onbeforeunload = function () {
-		$.ajax({
-			url: 'php/actions/exit.php',
-			data: 'exit=true',
-			method: 'GET',
-			success: function (data) {
-				console.log(data);
-			},
-			error: function (error,some,throwMessage) {
-				console.log(error);
-				alert(some);
-			}
+ListenerForUnload  = {
+	on: function () {
+		var that = this;
+		$(window).on('beforeunload', function () {
+			$.ajax({
+				url: 'php/actions/exit.php',
+				data: 'exit=true',
+				method: 'GET',
+				success: function (data) {
+					console.log(data);
+				}
+			});
 		});
+	},
+	off: function () {
+		$(window).off('beforeunload');
 	}
 }
 
-module.exports = addListenerForUnload;
+module.exports = ListenerForUnload;
