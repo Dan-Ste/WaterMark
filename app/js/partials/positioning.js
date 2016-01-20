@@ -2,7 +2,6 @@ var $ = require('jquery');
 require('jquery-ui/draggable');
 require('jquery-ui/spinner');
 
-
 function init() {
 
   var currentAxis,
@@ -16,7 +15,6 @@ function init() {
       indicatorY = $('.mode-one #position-control-Y'),
       maxX = viewportInnerWidth - waterMarkImgWidth,
       maxY = viewportInnerHeight - waterMarkImgHeight;
-
   indicatorX.spinner({
     min: 0,
     max: maxX,

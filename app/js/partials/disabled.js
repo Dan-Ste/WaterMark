@@ -9,7 +9,7 @@ var $ = require('jquery');
 	
 	var init = {
 		ableMarkInput : ableMarkInput
-	}
+	};
 
 
 module.exports = init;

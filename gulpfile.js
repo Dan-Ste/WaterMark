@@ -136,7 +136,8 @@ gulp.task('copy', function () {
 
     return gulp.src(path.watch.php)
         .pipe(plumber())
-        .pipe(gulp.dest(path.dist.php));
+        .pipe(gulp.dest(path.dist.php))
+        .pipe(reload({stream: true}));
 });
 //-----------Load PHP------------//
 gulp.task('php', function(){

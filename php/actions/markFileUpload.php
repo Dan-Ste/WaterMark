@@ -1,7 +1,13 @@
 <?php
   require_once '../vendor/autoload.php';
   use PHPImageWorkshop\ImageWorkshop;
+  include 'sizeCalculation.php';
+
   $file = $_FILES['file_mark'];
+
+  if(isset($_SESSION['pathToMarkFile']))
+    unlink($_SESSION['pathToMarkFile']);
+
   if(strstr($file['type'], 'image') && !$file['error']){
    session_start();
     for($i = 0 ,$path = "uploads/mark/$i".$file['name']; file_exists('../'.$path); $i++)
@@ -10,35 +16,7 @@
       $_SESSION['pathToMarkFile'] = '../'.$path;
       $arr = array('path' =>'php/'.$path);
       $arr['name'] = $file['name'];
-                        $pathToMain = $_SESSION['pathToMainFile'];
-                        $pathToMark = '../'.$path;
-                      $img = ImageWorkshop::initFromPath($pathToMain);
-                      $mark = ImageWorkshop::initFromPath($pathToMark);
-                        $ih = $img->getHeight();
-                        $iw = $img->getWidth();
-                        $mh = $mark->getHeight();
-                        $mw = $mark->getWidth();
-                        $coef_hor = 534/$ih;
-                        $coef_wert = 652/$iw;
-                        $coef = min($coef_wert,$coef_hor,1);
-                          if($mw/$mh < $iw/$ih) {
-                            if($mh * $coef < $ih * $coef){
-                              $arr['height'] = $mh * $coef;
-                              $arr['width'] = $mw * $coef;
-                            }else{
-                              $arr['width'] = $mw * $ih/$mh * $coef;
-                              $arr['height'] = $ih * $coef;
-                            }
-                          }else{
-                            if($mw * $coef < $iw * $coef){
-                              $arr['height'] = $mh * $coef;
-                              $arr['width'] = $mw * $coef;
-                            }else{
-                              $arr['height'] = $mh * $iw/$mw * $coef;
-                              $arr['width'] = $iw * $coef;
-                            }
-                          }
-                        $_SESSION['coef'] = 1/$coef;
+      $arr['size'] = size_calculation();
     }
   echo json_encode($arr);
   }
