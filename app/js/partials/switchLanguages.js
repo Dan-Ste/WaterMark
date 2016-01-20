@@ -15,10 +15,13 @@ function switchLanguages() {
 		e.preventDefault();
 
 		$('[data-lang]').each(function() {
-
 			var langArray = $(this).data('lang');
 			$(this).text(langArray[0]);
-			
+		});
+
+		$('.input-text').each(function() {
+			var langArray = $(this).data('lang');
+			$(this).attr("placeholder", langArray[0]);
 		});
 	
 	};
@@ -31,6 +34,11 @@ function switchLanguages() {
 			var langArray = $(this).data('lang');
 			$(this).text(langArray[1]);
 			
+		});
+
+		$('.input-text').each(function() {
+			var langArray = $(this).data('lang');
+			$(this).attr("placeholder", langArray[1]);
 		});
 
 	};

@@ -7,6 +7,7 @@
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-copy": "^0.0.2",
     "gulp-jade": "^1.1.0",
     "gulp-plumber": "^1.0.1",
     "gulp-ruby-sass": "^2.0.6",
