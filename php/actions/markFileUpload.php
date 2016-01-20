@@ -5,6 +5,9 @@
 
   $file = $_FILES['file_mark'];
 
+  if(isset($_SESSION['pathToMarkFile']))
+    unlink($_SESSION['pathToMarkFile']);
+
   if(strstr($file['type'], 'image') && !$file['error']){
    session_start();
     for($i = 0 ,$path = "uploads/mark/$i".$file['name']; file_exists('../'.$path); $i++)

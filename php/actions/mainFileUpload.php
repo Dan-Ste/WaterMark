@@ -6,6 +6,9 @@
 	if(strstr($file['type'], 'image') && !$file['error']){
 		session_start();
 
+		if(isset($_SESSION['pathToMainFile']))
+			unlink($_SESSION['pathToMainFile']);
+		
 		for($i = 0, $path = "uploads/main/$i".$file['name']; file_exists('../'.$path); $i++)
 			$path = "uploads/main/$i".$file['name'];
 
