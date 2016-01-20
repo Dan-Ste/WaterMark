@@ -22,6 +22,15 @@ function addlistenersForUploadFile() {
               $('.viewport-inner__main-image').attr('src',data.path);
               $(".settings-inputs-block").css('opacity', '1');
               $('[name=file_back_name]').val(data.name);
+
+              if('size' in data){
+                $('.viewport-inner__water-mark img').css({
+                  'width': data.size.width,
+                  'height': data.size.height
+                });
+                changeMode();
+                setTimeout(positioning,100);
+              }
             }
         )
         .error(
@@ -47,8 +56,8 @@ function addlistenersForUploadFile() {
               $('[name=file_mark_name]').val(data.name);
               
               $('.viewport-inner__water-mark img').css({
-                'width': data.width,
-                'height': data.height
+                'width': data.size.width,
+                'height': data.size.height
               });
               
               changeMode();
@@ -62,13 +71,13 @@ function addlistenersForUploadFile() {
               $(".input-hide").addClass('working');
               $(".extra-icon").addClass('working');
               $(".settings-button").addClass('working-button');
-               $("#file_mark").addClass('working-input');
+              $("#file_mark").addClass('working-input');
               $(".settings-position-map__label").addClass('working');
             }
         )
         .error(
           function (jqXHR, textStatus, errorThrown){
-            console.log(errorThrown);
+            console.log(jqXHR.responseText);
           }
         );
     }
