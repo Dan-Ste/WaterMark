@@ -12,6 +12,7 @@ var tap = require('gulp-tap');
 var colors = require('colors');
 var del = require('del');
 var reload = browserSync.reload;
+var gulpCopy = require('gulp-file-copy');
 
 //-----------Paths------------//
 var path = {
@@ -29,6 +30,7 @@ var path = {
       css: './dist/css/',
       img: './dist/img/',
       fonts: './dist/fonts/',
+      php: './dist/php/',
       js: './dist/js/'
     },
     watch: {
@@ -37,6 +39,7 @@ var path = {
       img: ['./app/img/**/*.+(png|jpg|jpeg|gif|svg)', '!./app/img/sprite/**/*.+(png|jpg|jpeg|gif|svg)'],
       sprite: './app/img/sprite/**/*.png',
       fonts: './app/fonts/**/*.*',
+      php: './php/**/*',
       js: './app/js/**/*.js'
     }
   };
@@ -128,6 +131,11 @@ gulp.task('js', function () {
         .pipe(reload({stream: true}));
 });
 
+//-----------Copy-PHP------------//
+gulp.task('copy', function () {
+    return gulp.src(path.watch.php)
+        .pipe(gulp.dest(path.dist.php));
+});
 //-----------Load Server------------//
 gulp.task('server', function () {
   browserSync({
@@ -146,6 +154,7 @@ gulp.task('watch', function () {
   gulp.watch(path.watch.img, ['img']);
   gulp.watch(path.watch.sprite, ['sprite']);
   gulp.watch(path.watch.js, ['js']);
+  gulp.watch(path.watch.php, ['copy']);
 });
 
 gulp.task('clean', del.bind(null, 'dist'));
