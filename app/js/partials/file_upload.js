@@ -7,21 +7,38 @@ var enable = require('./disabled.js');
 
 
 function addlistenersForUploadFile() {
+    var imageMain =  $('.viewport-inner__main-image'),
+        imageMark = $('.viewport-inner__water-mark img'),
+        imageLoad = $('.peeek-loading');
 
   $('#file_back').fileupload({
     dataType: 'json',
     url: 'php/actions/mainFileUpload.php',
     done: function (e,data) {
       console.log('Выполнено');
+      imageLoad.css({opacity: 1, 'z-index': 100});
+      imageMain.css('opacity', '0');
     },
     add: function (e,data) {
       data.submit()
         .success(
             function (data){
               console.log('загружено изображение ' + data.name);
-              $('.viewport-inner__main-image').attr('src',data.path);
-              $(".settings-inputs-block").css('opacity', '1');
-              $('[name=file_back_name]').val(data.name);
+              imageMain.attr('src',data.path);
+
+
+                imageMain.load(
+                    function() {
+                        setTimeout(function(){
+                        imageMain.animate({opacity: 1}, 500 );
+                        $(".settings-inputs-block").css('opacity', '1');
+                        $('#file_mark').removeAttr("disabled");
+                        $('[name=file_back_name]').val(data.name);
+                        imageLoad.css({opacity: 0, 'z-index': -100}, 500 );
+                        },
+                        1000);
+                    }
+                );
             }
         )
         .error(
@@ -36,24 +53,40 @@ function addlistenersForUploadFile() {
     dataType: 'json',
     url: 'php/actions/markFileUpload.php',
     done: function (e,data) {
-      console.log('Выполнено')
+      console.log('Выполнено');
+      imageLoad.css({opacity: 1, 'z-index': 100});
+      imageMark.css('opacity', '0');
     },
     add: function (e,data) {
       data.submit()
         .success(
             function (data){
               console.log('загружено изображение ' , data.name);
-              $('.viewport-inner__water-mark img').attr('src',data.path);
-              $('[name=file_mark_name]').val(data.name);
-              
-              $('.viewport-inner__water-mark img').css({
+              imageMark.attr('src',data.path);
+              imageMark.css({
                 'width': data.width,
                 'height': data.height
               });
-              
-              changeMode();
+
+                imageMark.load(
+                    function() {
+                        setTimeout(function(){
+                                imageMark.animate({opacity: 1}, 500 );
+                                $('[name=file_mark_name]').val(data.name);
+                                imageLoad.animate({opacity: 0, 'z-index': -100}, 500 );
+                            },
+                            1000);
+                    }
+                );
+
+                changeMode();
               positioning();
               $("#sliderOpacity").slider( "option", "disabled", false );
+              $('.clearbutton').removeAttr("disabled");
+              $('#download_file').removeAttr("disabled");
+              $('#file_mark').removeAttr("disabled");
+              $('#position-control-Y').removeAttr("disabled");
+              $('#position-control-X').removeAttr("disabled");
               $(".settings-position-extra").css('opacity', '1');
               $(".settings-position-block__left").css('opacity', '1');
               $(".settings-position-block__right").css('opacity', '1');
@@ -62,7 +95,7 @@ function addlistenersForUploadFile() {
               $(".input-hide").addClass('working');
               $(".extra-icon").addClass('working');
               $(".settings-button").addClass('working-button');
-               $("#file_mark").addClass('working-input');
+              $("#file_mark").addClass('working-input');
               $(".settings-position-map__label").addClass('working');
             }
         )

@@ -12,7 +12,7 @@ var tap = require('gulp-tap');
 var colors = require('colors');
 var del = require('del');
 var reload = browserSync.reload;
-var gulpCopy = require('gulp-file-copy');
+var connectPHP = require('gulp-connect-php');
 
 //-----------Paths------------//
 var path = {
@@ -133,19 +133,25 @@ gulp.task('js', function () {
 
 //-----------Copy-PHP------------//
 gulp.task('copy', function () {
+
     return gulp.src(path.watch.php)
+        .pipe(plumber())
         .pipe(gulp.dest(path.dist.php));
 });
+//-----------Load PHP------------//
+gulp.task('php', function(){
+    connectPHP.server({ base: './dist', keepalive:true, hostname: 'localhost', port:8080});
+});
+
 //-----------Load Server------------//
-gulp.task('server', function () {
+gulp.task('server',['php'] , function () {
   browserSync({
-    port: 8000,
+    port:8080,
     server: {
       baseDir: "dist"
     }
   });
 });
-
 //-----------watch files------------//
 gulp.task('watch', function () {
   gulp.watch(path.watch.jade, ['jade']);
@@ -169,4 +175,4 @@ gulp.task('build', [
 ]);
 
 
-gulp.task('default', ['build', 'server', 'watch']);
+gulp.task('default', ['build', 'server', 'watch', 'php']);

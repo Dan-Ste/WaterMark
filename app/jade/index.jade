@@ -46,6 +46,10 @@ html(lang='ru')
                 .viewport-inner__water-mark
                   img(src="", alt="" class="viewport-inner__water-mark-image")
                 img(src="", alt="" class="viewport-inner__main-image")
+              .peeek-loading
+                ul
+                  - for (var i = 0; i < 10; i++)
+                    li
           .settings
             //блок настройки
             .settings-title
@@ -67,8 +71,8 @@ html(lang='ru')
                 //блок кнопок
                 .settings-buttons
                   .settings-wrapper-buttons
-                    button(data-lang='["Сброс", "Reset"]').settings-button.clearbutton Сброс
-                    button(data-lang='["Скачать", "Download"]' id='download_file').settings-button.leftpos.settings-button__active.downloadbutton Скачать
+                    button(data-lang='["Сброс", "Reset"]' disabled).settings-button.clearbutton Сброс
+                    button(data-lang='["Скачать", "Download"]' id='download_file' disabled).settings-button.leftpos.settings-button__active.downloadbutton Скачать
       footer.footer
         .footer-inner
           .copyright(data-lang='["© 2016. Это сайт LOFTprojectTEAM, пожалуйста, не копируйте и не воруйте его", "© 2016. London is the capital of Great Britain"]') © 2016. Это сайт LOFTprojectTEAM, пожалуйста, не копируйте и не воруйте его
