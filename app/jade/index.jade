@@ -35,6 +35,11 @@ html(lang='ru')
     include _common/_left-buttons
 
     .wrapper
+      .page-loading
+        ul.loding-list
+          - for (var i = 0; i < 10; i++)
+            li.loding-list-item
+        .page-loding-text Loding...
       .page-content
         .container
           .veiwport
@@ -46,10 +51,10 @@ html(lang='ru')
                 .viewport-inner__water-mark
                   img(src="", alt="" class="viewport-inner__water-mark-image")
                 img(src="", alt="" class="viewport-inner__main-image")
-              .peeek-loading
-                ul
+              .viewport-loading
+                ul.loding-list
                   - for (var i = 0; i < 10; i++)
-                    li
+                    li.loding-list-item
           .settings
             //блок настройки
             .settings-title
@@ -73,8 +78,10 @@ html(lang='ru')
                   .settings-wrapper-buttons
                     button(data-lang='["Сброс", "Reset"]' disabled).settings-button.clearbutton Сброс
                     button(data-lang='["Скачать", "Download"]' id='download_file' disabled).settings-button.leftpos.settings-button__active.downloadbutton Скачать
+      //popup
+      include _common/_popup
+
       footer.footer
         .footer-inner
           .copyright(data-lang='["© 2016. Это сайт LOFTprojectTEAM, пожалуйста, не копируйте и не воруйте его", "© 2016. London is the capital of Great Britain"]') © 2016. Это сайт LOFTprojectTEAM, пожалуйста, не копируйте и не воруйте его
     script(src='js/main.js')
-

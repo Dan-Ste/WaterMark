@@ -11,47 +11,47 @@ var browserify = require('browserify');
 var tap = require('gulp-tap');
 var colors = require('colors');
 var del = require('del');
+var php = require('gulp-connect-php');
 var reload = browserSync.reload;
-var connectPHP = require('gulp-connect-php');
 
 //-----------Paths------------//
 var path = {
-    app: {
-      jade: './app/jade/index.jade',
-      scss: './app/scss/main.scss',
-      img: ['./app/img/**/*.+(png|jpg|jpeg|gif|svg)', '!./app/img/sprite/**/*.+(png|jpg|jpeg|gif|svg)'],
-      sprite: './app/img/sprite/**/*.png',
-      fonts: './app/fonts/**/*.*',
-      spriteScss: './app/scss/_other/',
-      js: './app/js/main.js'
-    },
-    dist: {
-      html: './dist/',
-      css: './dist/css/',
-      img: './dist/img/',
-      fonts: './dist/fonts/',
-      php: './dist/php/',
-      js: './dist/js/'
-    },
-    watch: {
-      jade: './app/jade/**/*.jade',
-      scss: './app/scss/**/*.scss',
-      img: ['./app/img/**/*.+(png|jpg|jpeg|gif|svg)', '!./app/img/sprite/**/*.+(png|jpg|jpeg|gif|svg)'],
-      sprite: './app/img/sprite/**/*.png',
-      fonts: './app/fonts/**/*.*',
-      php: './php/**/*',
-      js: './app/js/**/*.js'
-    }
-  };
+  app: {
+    jade: './app/jade/index.jade',
+    scss: './app/scss/main.scss',
+    img: ['./app/img/**/*.+(png|jpg|jpeg|gif|svg)', '!./app/img/sprite/**/*.+(png|jpg|jpeg|gif|svg)'],
+    sprite: './app/img/sprite/**/*.png',
+    fonts: './app/fonts/**/*.*',
+    spriteScss: './app/scss/_other/',
+    js: './app/js/main.js'
+  },
+  dist: {
+    html: './dist/',
+    css: './dist/css/',
+    img: './dist/img/',
+    fonts: './dist/fonts/',
+    php: './dist/php/',
+    js: './dist/js/'
+  },
+  watch: {
+    jade: './app/jade/**/*.jade',
+    scss: './app/scss/**/*.scss',
+    img: ['./app/img/**/*.+(png|jpg|jpeg|gif|svg)', '!./app/img/sprite/**/*.+(png|jpg|jpeg|gif|svg)'],
+    sprite: './app/img/sprite/**/*.png',
+    fonts: './app/fonts/**/*.*',
+    php: './php/**/*',
+    js: './app/js/**/*.js'
+  }
+};
 //-----------Logger------------//
 function log(error) {
   console.log([
-      '',
-      "----------ERROR MESSAGE START----------".bold.red.underline,
-      ("[" + error.name + " in " + error.plugin + "]").red.bold.inverse,
-      error.message,
-      "----------ERROR MESSAGE END----------".bold.red.underline,
-      ''
+    '',
+    "----------ERROR MESSAGE START----------".bold.red.underline,
+    ("[" + error.name + " in " + error.plugin + "]").red.bold.inverse,
+    error.message,
+    "----------ERROR MESSAGE END----------".bold.red.underline,
+    ''
   ].join('\n'));
   this.end();
 }
@@ -64,23 +64,23 @@ gulp.task('sprite', function () {
     padding: 10
   }));
   spriteData.img.pipe(gulp.dest(path.dist.img))
-                .pipe(reload({stream: true}));
+    .pipe(reload({stream: true}));
   spriteData.css.pipe(gulp.dest(path.app.spriteScss))
-                .pipe(reload({stream: true}));
+    .pipe(reload({stream: true}));
 });
 
 //-----------Img------------//
 gulp.task('img', function () {
   gulp.src(path.app.img)
-      .pipe(gulp.dest(path.dist.img))
-      .pipe(reload({stream: true}));
+    .pipe(gulp.dest(path.dist.img))
+    .pipe(reload({stream: true}));
 });
 
 //-----------Fonts------------//
 gulp.task('fonts', function () {
   gulp.src(path.app.fonts)
-      .pipe(gulp.dest(path.dist.fonts))
-      .pipe(reload({stream: true}));
+    .pipe(gulp.dest(path.dist.fonts))
+    .pipe(reload({stream: true}));
 });
 
 //-----------Jade------------//
@@ -93,8 +93,7 @@ gulp.task('jade', function () {
       locals: YOUR_LOCALS,
       pretty: '\t'
     })).on('error', log)
-    .pipe(gulp.dest(path.dist.html))
-    .pipe(reload({stream: true}));
+    .pipe(gulp.dest(path.dist.html));
 });
 
 //-----------Scss------------//
@@ -111,8 +110,7 @@ gulp.task('scss', function () {
     })).on('error', log)
     .pipe(autoprefixer())
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(path.dist.css))
-    .pipe(reload({stream: true}));
+    .pipe(gulp.dest(path.dist.css));
 
 });
 
@@ -125,34 +123,17 @@ function bundler(file) {
 //-----------Js------------//
 gulp.task('js', function () {
   gulp.src(path.app.js)
-        .pipe(plumber())
-        .pipe(tap(bundler))
-        .pipe(gulp.dest(path.dist.js))
-        .pipe(reload({stream: true}));
+    .pipe(plumber())
+    .pipe(tap(bundler))
+    .pipe(gulp.dest(path.dist.js));
 });
-
 //-----------Copy-PHP------------//
 gulp.task('copy', function () {
-
-    return gulp.src(path.watch.php)
-        .pipe(plumber())
-        .pipe(gulp.dest(path.dist.php))
-        .pipe(reload({stream: true}));
-});
-//-----------Load PHP------------//
-gulp.task('php', function(){
-    connectPHP.server({ base: './dist', keepalive:true, hostname: 'localhost', port:8080});
+  return gulp.src(path.watch.php)
+    .pipe(plumber())
+    .pipe(gulp.dest(path.dist.php));
 });
 
-//-----------Load Server------------//
-gulp.task('server',['php'] , function () {
-  browserSync({
-    port:8080,
-    server: {
-      baseDir: "dist"
-    }
-  });
-});
 //-----------watch files------------//
 gulp.task('watch', function () {
   gulp.watch(path.watch.jade, ['jade']);
@@ -164,6 +145,23 @@ gulp.task('watch', function () {
   gulp.watch(path.watch.php, ['copy']);
 });
 
+
+//-----------Load PHP------------//
+gulp.task('php', function(){
+  php.server({ base: './dist', keepalive:true, hostname: 'localhost', port:8080});
+});
+
+//-----------Load Server------------//
+gulp.task('server',['php'] , function () {
+  browserSync({
+    port:8080,
+    server: {
+      baseDir: "dist"
+    }
+  });
+});
+
+
 gulp.task('clean', del.bind(null, 'dist'));
 
 gulp.task('build', [
@@ -172,8 +170,8 @@ gulp.task('build', [
   'fonts',
   'img',
   'sprite',
-  'js'
+  'js',
+  'copy'
 ]);
-
 
 gulp.task('default', ['build', 'server', 'watch', 'php']);

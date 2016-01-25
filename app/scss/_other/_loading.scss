@@ -2,7 +2,7 @@ $size:1.4em;
 $dotCount:10;
 $animationTime:2.5s;
 
-.peeek-loading{
+.viewport-loading, .page-loading{
   background-color: rgba(249, 126, 119, 0.57);
   overflow: hidden;
   position: absolute;
@@ -14,31 +14,44 @@ $animationTime:2.5s;
   height: 100%;
   width: 100%;
 }
-.peeek-loading ul{
+.page-loading{
+  background-color: rgba(249, 126, 119, 1);
+  opacity: 1;
+  z-index: 1000;
+}
+.page-loding-text {
+  font-size: 30px;
+  position: absolute;
+  left: calc(48% - 0.7em);
+  top: calc(73% - 4.2em);
+  display: inline-block;
+  color: white;
+}
+.loding-list{
   position: absolute;
   left: calc(50% - 0.7em);
   top: calc(50% - 4.2em);
   display: inline-block;
   text-indent:$size*2;
 }
-.peeek-loading ul li:after,
-.peeek-loading ul:after{
+.loding-list li:after,
+.loding-list:after{
   width: $size;
   height: $size;
   background-color: #fff;
   border-radius: 100%;
 }
-.peeek-loading ul li:after,
-.peeek-loading ul:after{
+.loding-list li:after,
+.loding-list:after{
   content:"";
   display: block;
 }
-.peeek-loading ul:after{
+.loding-list:after{
   position: absolute;
   top: $size*2;
   left: 0;
 }
-.peeek-loading li{
+.loding-list-item{
   position: absolute;
   padding-bottom: $size*4;
   top: 0;
@@ -47,18 +60,18 @@ $animationTime:2.5s;
 
 // Creating Circle and Animation Delay
 @for $i from 1 through 10{
-  .peeek-loading li:nth-child(#{$i}){
+  .loding-list-item:nth-child(#{$i}){
     $deg:($i - 1)*(360deg/$dotCount);
     transform: rotate($deg);
     animation-delay: $animationTime*$i/$dotCount/2;
   }
-  .peeek-loading li:nth-child(#{$i}):after{
+  .loding-list-item:nth-child(#{$i}):after{
     animation-delay: $animationTime*$i/$dotCount/2;
   }
 }
 
 // Animations
-.peeek-loading li{
+.loding-list-item{
   animation: dotAnimation $animationTime infinite;
 }
 @keyframes dotAnimation {
@@ -70,7 +83,7 @@ $animationTime:2.5s;
   }
 }
 
-.peeek-loading li:after{
+.loding-list-item:after{
   animation: dotAnimationTwo $animationTime infinite;
 }
 @-webkit-keyframes dotAnimationTwo {

@@ -3,12 +3,12 @@
     ul.language-list
       -
         var lang = {
-        'рус':'#rus',
-        'eng':'#eng'
+        'рус':'rus',
+        'eng':'eng'
         };
       each value, key in lang
         li.language-list__item
-          a(href="#" class='language-link__#{key}').language-link= key
+          a(href="#" class='language-link__#{value}').language-link= key
   .socials-like
     ul.social-list
       -
@@ -22,4 +22,3 @@
           a(href="#" class='social-link__#{key}' id="#{key}").social-link= key
       li.social-list__item
         a(href="#").social-link.social-link__like like
-

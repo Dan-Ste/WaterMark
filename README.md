@@ -21,6 +21,7 @@ $ npm i
 $ bower i
 $ cd php
 $ php composer.phar update
+$ cd ..
 $ gulp
 ```
 

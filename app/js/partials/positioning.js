@@ -13,13 +13,24 @@ function init() {
       viewportInnerHeight = $('.view-port-inner__wrapper').height(),
       indicatorX = $('.mode-one #position-control-X'),
       indicatorY = $('.mode-one #position-control-Y'),
+      oneMapInput = $('.settings-position-map-list__item').children('input'),
       maxX = viewportInnerWidth - waterMarkImgWidth,
       maxY = viewportInnerHeight - waterMarkImgHeight;
+
+  function _deleteChecked () {
+    // del active class
+    oneMapInput.removeAttr('checked');
+    $(".settings-position-extra-list")
+      .find('.settings-position-extra-list__item')
+      .removeClass('extra-item__active'); // удаляем активный класс со всех кнопок
+  }
+
   indicatorX.spinner({
     min: 0,
     max: maxX,
     spin: function(event, ui) {
       waterMarkImg.css({'left': ui.value});
+      _deleteChecked();
     }
   });
 
@@ -28,6 +39,7 @@ function init() {
     max: maxY,
     spin: function(event, ui) {
       waterMarkImg.css({'top': ui.value});
+      _deleteChecked();
     }
   });
 
@@ -47,12 +59,15 @@ function init() {
 
     if($(this).val() > max) {
       waterMarkImg.css( property, max );
+      _deleteChecked();
       $(this).val(max);
     } else if ($(this).val() < 0) {
       waterMarkImg.css( property, 0 );
+      _deleteChecked();
       $(this).val(0);
     } else {
       waterMarkImg.css( property, parseInt($(this).val()) );
+      _deleteChecked();
     }
   }
 
@@ -88,8 +103,8 @@ function init() {
         waterMarkImg.css({'top': maxY, 'left': maxX});
         break;
     }
-    indicatorX.val(parseInt(waterMarkImg.css('top')));
-    indicatorY.val(parseInt(waterMarkImg.css('left')));
+    indicatorY.val(parseInt(waterMarkImg.css('top')));
+    indicatorX.val(parseInt(waterMarkImg.css('left')));
   }
 
   // Initialize jquery.draggable plugin on the water mark image, limit his draggable area
@@ -100,6 +115,9 @@ function init() {
       // and change indicator during drag event
       indicatorX.val( parseInt(waterMarkImg.css('left')) );
       indicatorY.val( parseInt(waterMarkImg.css('top')) );
+
+      _deleteChecked();
+
     }
   });
 

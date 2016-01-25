@@ -7,7 +7,7 @@ function switchLanguages() {
 		};
 		
 	var _setUpListners = function(){
-		$('.language-link__рус').on('click', _switchRussian);
+		$('.language-link__rus').on('click', _switchRussian);
 		$('.language-link__eng').on('click', _switchEnglish);
 	};
 

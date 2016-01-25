@@ -1,16 +1,16 @@
 var $ = require('jquery');
-	//Cache DOM
-	var bgInput = $('#file_back');
-	var markInput = $('#file_mark');
 
-	function ableMarkInput () {
+var pageLoad = $('.page-loading');
 
+	function pageLoadFunc () {
+		console.log('page download');
+		$(document).ready(function(){
+			pageLoad.css({opacity: 0, 'z-index': -1000});
+		});
 	}
 	
-	var init = {
-		ableMarkInput : ableMarkInput
-	};
 
 
-module.exports = init;
+
+module.exports = pageLoadFunc;
 
