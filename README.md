@@ -77,11 +77,11 @@ The result you can also publish on social networks, Facebook, Twitter and Vkonta
 Team
 -------------
 
-> [Daniel Steshenko] - team lead, JS, git, refactoring, code review.
-> [Maksim Popov] - HTML, CSS, JS.
-> [Mihail Izmaylov]- PHP, JS.
-> [Aleksandr Lyubakov] - JS, HTML.
-> [Valery Litvinchuk] - JS, HTML
+* [Daniel Steshenko] - team lead, JS, git, refactoring, code review.
+* [Maksim Popov] - HTML, CSS, JS.
+* [Mihail Izmaylov]- PHP, JS.
+* [Aleksandr Lyubakov] - JS, HTML.
+* [Valery Litvinchuk] - JS, HTML
 
 
    [Valery Litvinchuk]: <https://github.com/valerylitvinchuk>
