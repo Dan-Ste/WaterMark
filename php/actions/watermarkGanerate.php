@@ -37,21 +37,30 @@
       $mw = $iw;
     }
 
-  if ($type == 'tile') {
 
-    for ($newTop = $top ; $newTop < $ih; $newTop = $newTop+$mh+$margin_bottom ) { 
-      for ($newLeft = $left ; $newLeft < $iw; $newLeft = $newLeft+$mw+$margin_right ) { 
-        $img->addLayerOnTop($mark, $newLeft, $newTop, 'LT');
+  if ($type == 'tile') { 
+
+    $layer = ImageWorkshop::initVirginLayer($iw+$mw,$mh, null);
+    $i = 1;
+
+    for ($newLeft = 0 ; $newLeft < $iw; $newLeft += $mw+$margin_right ){
+      $layer->addLayerOnTop($mark, $newLeft, 0, 'LT');
+    }
+    $i = 0 ;
+    for ( $newTop = $top ; $newTop < $ih; $newTop += $mh+$margin_bottom ) { 
+      $img->addLayerOnTop($layer, $left, $newTop, 'LT');
+      if( !$i % 5){
         $img = $img->getResult();
         $img = ImageWorkshop::initFromResourceVar($img);
       }
     }
+
   }else{
     $img->addLayerOnTop($mark, $left, $top, "LT");
   }
 
   $image = $img->getResult();
 
-  include 'fileDownload.php'
+  require_once 'fileDownload.php'
 
 ?>

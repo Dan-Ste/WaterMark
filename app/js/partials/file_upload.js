@@ -115,7 +115,7 @@ function addlistenersForUploadFile() {
         )
         .error(
           function (jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR.responseText);
+           popup.show();
           }
         );
     }
