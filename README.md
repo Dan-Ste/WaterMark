@@ -40,7 +40,7 @@ Project overview
 
 ![03-05](https://raw.githubusercontent.com/Dan-Ste/WaterMark/readme/app/img/for-readme/03_45_settings.jpg)
 
-#### 3 . <i class="icon-cog"></i> You can use two modes. One brand (default) mode and patern.
+#### 3 . <i class="icon-cog"></i> You can use two modes. One mark (default) mode and patern.
 
 #### 4 . <i class="icon-cog"></i> It can align the mark, with respect to the main image.
 
