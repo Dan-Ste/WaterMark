@@ -54,9 +54,13 @@ Team
 -------------
 
 > [Daniel Steshenko] - team lead, JS, git, refactoring, code review.
+
 > [Maksim Popov] - HTML, CSS, JS.
+
 > [Mihail Izmaylov]- PHP, JS.
+
 > [Aleksandr Lyubakov] - JS, HTML.
+
 > [Valery Litvinchuk] - JS, HTML
 
 
