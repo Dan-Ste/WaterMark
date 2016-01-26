@@ -1,10 +1,10 @@
 var $ = require('jquery');
 require('jquery-ui/jquery-ui');
 require('blueimp-file-upload/js/jquery.fileupload');
+var popup = require('./popup.js');
 var changeMode = require('./change-mode');
 var positioning = require('./positioning');
 var enable = require('./disabled.js');
-
 
 function addlistenersForUploadFile() {
   var imageMain = $('.viewport-inner__main-image'),
@@ -54,7 +54,7 @@ function addlistenersForUploadFile() {
         )
         .error(
           function (jqXHR, textStatus, errorThrown) {
-            alert('Что по пошло не так, презагрузите страничку и попробуйте снова.');
+            popup.show();
           }
         );
     }

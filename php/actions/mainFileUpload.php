@@ -1,16 +1,14 @@
 <?php
 
-	include 'sizeCalculation.php';
-
+	require_once 'sizeCalculation.php';
 	$file = $_FILES['file_back'];
 	if(strstr($file['type'], 'image') && !$file['error']){
 		session_start();
 
 		if(isset($_SESSION['pathToMainFile']))
 			unlink($_SESSION['pathToMainFile']);
-		
-		for($i = 0, $path = "uploads/main/$i".$file['name']; file_exists('../'.$path); $i++)
-			$path = "uploads/main/$i".$file['name'];
+
+		$path = "uploads/main/".uniqid().substr($file['name'],-4);
 
 		if(move_uploaded_file($file['tmp_name'], '../'.$path)){
 			$_SESSION['pathToMainFile'] = '../'.$path;
@@ -23,6 +21,8 @@
 				$arr['size'] = size_calculation();
 			}
 		}
+		echo json_encode($arr);
 	}
-	echo json_encode($arr);
+	else echo 'error file upload';
+
 ?>
