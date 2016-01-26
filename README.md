@@ -6,8 +6,26 @@ Description
 
 >Watermark is a application for generation picture with watermark, obviously. This is third homework from LoftSchool with requirement team work.
 
-Open web site [Watermark]
+Development and use
 -------------
+
+>If you want to local install our app, you need make following commands in terminal:
+
+```sh
+$ git clone https://github.com/Dan-Ste/WaterMark.git
+$ cd watermark
+$ npm i
+$ bower i
+$ cd php
+$ php composer.phar update
+$ cd ..
+$ gulp
+```
+
+Project overview
+-------------
+
+#### Open the website [watermark]. 
 
 ![start](https://raw.githubusercontent.com/Dan-Ste/WaterMark/readme/app/img/for-readme/01_settings.jpg)
 
@@ -40,34 +58,30 @@ Open web site [Watermark]
 
 #### 8 . <i class="icon-upload"></i> Download result.
 
+language
+-------------
+
+![09](https://raw.githubusercontent.com/Dan-Ste/WaterMark/readme/app/img/for-readme/09_settings.jpg)
+
+#### 9 . <i class="icon-upload"></i> Switch language.
+
 Publication
 -------------
 
 The result you can also publish on social networks, Facebook, Twitter and Vkontakte.
 
-#### <i class="icon-upload"></i> Publish result.
+#### 10 .  <i class="icon-upload"></i> Publish result.
 
 ![03](https://raw.githubusercontent.com/Dan-Ste/WaterMark/readme/app/img/for-readme/10_settings.jpg)
-
 
 Team
 -------------
 
 > [Daniel Steshenko] - team lead, JS, git, refactoring, code review.
-
 > [Maksim Popov] - HTML, CSS, JS.
-
 > [Mihail Izmaylov]- PHP, JS.
-
 > [Aleksandr Lyubakov] - JS, HTML.
-
 > [Valery Litvinchuk] - JS, HTML
-
-
-
-Structure
--------------
-[TOC]
 
 
    [Valery Litvinchuk]: <https://github.com/valerylitvinchuk>
