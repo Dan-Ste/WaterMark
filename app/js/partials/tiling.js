@@ -1,7 +1,7 @@
 var $ = require('jquery');
 
 function init() {
-
+console.log($( ".ui-draggable" ).draggable( "option", "containment" ));
   var element = $('.viewport-inner__water-mark-image'),
       wrapper = $('.view-port-inner__wrapper'),
       wrapperWidth = wrapper.width(),
@@ -24,7 +24,7 @@ function init() {
     min: 0,
     max: maxGutterY,
     spin: function(event, ui) {
-      watermarkWrapper.height(countHeight * (watermarkHeight + ui.value));
+      watermarkWrapper.height((countHeight+1) * (watermarkHeight + ui.value));
       widthViewMap.css('height', ui.value);
       $('.viewport-inner__water-mark-image').css({'margin-bottom': ui.value})
     }
@@ -34,25 +34,29 @@ function init() {
     min: 0,
     max: maxGutterX,
     spin: function(event, ui) {
-      watermarkWrapper.width(countWidth * (watermarkWidth + ui.value));
-      heightViewMap.css('width', ui.value);
-      $('.viewport-inner__water-mark-image').css({'margin-right': ui.value})
-    }
-  });
+      watermarkWrapper.width((countWidth+1) * (watermarkWidth + ui.value));
+    heightViewMap.css('width', ui.value);
+    $('.viewport-inner__water-mark-image').css({'margin-right': ui.value})
+  }
+});
 
-  indicatorX.spinner( "value", 0 );
-  indicatorY.spinner( "value", 0 );
+indicatorX.spinner( "value", 15 );
+indicatorY.spinner( "value", 15 );
 
   function createTiling() {
-    watermarkWrapper.width((countWidth+4) * (watermarkWidth + indicatorX.spinner('value') ));
-    watermarkWrapper.height((countHeight+3) * (watermarkHeight + indicatorY.spinner('value') ));
+    watermarkWrapper.width((countWidth+1) * (watermarkWidth + indicatorX.spinner('value') ));
+    watermarkWrapper.height((countHeight+1) * (watermarkHeight + indicatorY.spinner('value') ));
 
-    for(i, j = (countWidth+4) * (countHeight+3); i < j; i++) {
-      clone = element.clone();
-
-      watermarkWrapper.append(clone);
+    var imgStr = watermarkWrapper.html(),
+        imgsStr = imgStr;
+    for(i, j = (countWidth+1) * (countHeight+1) - 1; i < j; i++) {
+      imgsStr = imgsStr+imgStr;      
     }
-
+    watermarkWrapper.html(imgsStr);
+    $('.viewport-inner__water-mark-image').css({
+      'margin-bottom': '15px',
+      'margin-right': '15px'
+    })
   }
 
   createTiling();
@@ -67,7 +71,7 @@ function init() {
       if(indicatorX.spinner('value') > max) {
 
         wrapper.height(countHeight * (watermarkHeight + max));
-        widthViewMap.css('height', max);
+        widthViewMap.css('height', max);    
         watermark.css({'margin-bottom': max})
         indicatorX.spinner('value', max);
 

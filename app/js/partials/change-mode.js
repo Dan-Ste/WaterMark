@@ -16,13 +16,14 @@ function changeModeModul() {
       marginBottom = parseInt( $('.viewport-inner__water-mark-image').css('margin-bottom') ),
       marginRight = parseInt( $('.viewport-inner__water-mark-image').css('margin-right') );
 
-
+ 
   $(".settings-position-extra-list").on('click', _changeMode); // переключение режима ватермарки
   $(".extra-icon-one").on('click', _modOne); // режим одной марки
   $(".extra-icon-pattern").on('click', _modPattern); // меняем режим патерна
 
 
   function _modOne() { // режим одной марки
+    waterMarkImg = $('.viewport-inner__water-mark img:first-child');
     patternMapBlock.css('display', 'none');
     firstInputMap.prop('checked',true);
     controlWrapper.removeClass('mode-pattern').addClass('mode-one');
@@ -31,7 +32,6 @@ function changeModeModul() {
     waterMarkWrapper.draggable("option", "containment", ".view-port-inner__wrapper");
     waterMarkWrapper.width('auto');
     waterMarkWrapper.height('auto');
-
     waterMarkImg.siblings().remove();
     waterMarkImg.css({
       'margin-bottom': 0,
@@ -49,6 +49,7 @@ function changeModeModul() {
   }
 
   function _modPattern() { // меняем режим патерна
+
     patternMapBlock.css('display', 'block');
     oneMapInput.removeAttr('checked');
     controlWrapper.removeClass('mode-one').addClass('mode-pattern');
@@ -62,12 +63,24 @@ function changeModeModul() {
     tiling();
     positioning();
 
-    waterMarkWrapper.draggable("option", "containment", "window");
+
+    waterMarkWrapper.draggable("option", "containment", "none");
 
     waterMarkWrapper.css('left', 0);
     waterMarkWrapper.css('top', 0);
 
-    $('.viewport-inner__water-mark').data('reg',"tile");
+    waterMarkWrapper.data('reg',"tile");
+    waterMarkImg = $('.viewport-inner__water-mark img:first-child');
+    var cssMarginBottom = parseInt(waterMarkImg.css('margin-bottom')),
+        cssMarginRight = parseInt(waterMarkImg.css('margin-right'));
+    waterMarkWrapper.draggable({
+      drag: function(event, ui) {
+          ui.position.top = Math.max($('.view-port-inner__wrapper').height()-waterMarkWrapper.height(), Math.min(ui.position.top, cssMarginBottom) );
+          ui.position.left = Math.max($('.view-port-inner__wrapper').width()-waterMarkWrapper.width(), Math.min(ui.position.left, cssMarginRight) );
+
+      }
+    });
+
   }
 
   function _changeMode(e) { // переключение режима ватермарки
@@ -86,6 +99,7 @@ function changeModeModul() {
   return {
     modOne : _modOne
   }
+
 }
 
 module.exports = changeModeModul;

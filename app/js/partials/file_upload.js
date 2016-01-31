@@ -48,7 +48,7 @@ function addlistenersForUploadFile() {
                 'width': data.size.width,
                 'height': data.size.height
               });
-              changeMode();
+              changeMode.modOne();
             }
           }
         )
