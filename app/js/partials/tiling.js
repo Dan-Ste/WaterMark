@@ -1,7 +1,6 @@
 var $ = require('jquery');
 
 function init() {
-console.log($( ".ui-draggable" ).draggable( "option", "containment" ));
   var element = $('.viewport-inner__water-mark-image'),
       wrapper = $('.view-port-inner__wrapper'),
       wrapperWidth = wrapper.width(),
@@ -46,13 +45,12 @@ indicatorY.spinner( "value", 15 );
   function createTiling() {
     watermarkWrapper.width((countWidth+1) * (watermarkWidth + indicatorX.spinner('value') ));
     watermarkWrapper.height((countHeight+1) * (watermarkHeight + indicatorY.spinner('value') ));
+    var fragment = document.createDocumentFragment();    
 
-    var imgStr = watermarkWrapper.html(),
-        imgsStr = imgStr;
-    for(i, j = (countWidth+1) * (countHeight+1) - 1; i < j; i++) {
-      imgsStr = imgsStr+imgStr;      
+    for(i=0, j = (countWidth+1) * (countHeight+1) ; i < j; i++) {
+      watermarkWrapper.append(element.clone());
     }
-    watermarkWrapper.html(imgsStr);
+    
     $('.viewport-inner__water-mark-image').css({
       'margin-bottom': '15px',
       'margin-right': '15px'

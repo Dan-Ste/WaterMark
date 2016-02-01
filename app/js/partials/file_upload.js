@@ -48,7 +48,7 @@ function addlistenersForUploadFile() {
                 'width': data.size.width,
                 'height': data.size.height
               });
-              changeMode.modOne();
+              changeMode().modOne();
             }
           }
         )
@@ -75,6 +75,7 @@ function addlistenersForUploadFile() {
       data.submit()
         .success(
           function (data) {
+            imageMark = $('.viewport-inner__water-mark img');
             console.log('загружено изображение ', data.name);
             imageMark.attr('src', data.path);
             imageMark.css({
@@ -93,7 +94,7 @@ function addlistenersForUploadFile() {
               }
             );
 
-            changeMode();
+            changeMode().modOne();
             positioning();
             $("#sliderOpacity").slider("option", "disabled", false);
             $('.clearbutton').removeAttr("disabled");
