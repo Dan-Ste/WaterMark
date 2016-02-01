@@ -32,10 +32,14 @@ function changeModeModul() {
     waterMarkWrapper.draggable("option", "containment", ".view-port-inner__wrapper");
     waterMarkWrapper.width('auto');
     waterMarkWrapper.height('auto');
+    waterMarkWrapper.css({
+      'top': 0,
+      'left': 0
+    })
     waterMarkImg.siblings().remove();
     waterMarkImg.css({
       'margin-bottom': 0,
-      'margin-right': 0,
+      'margin-right': 0
     })
 
      $('.viewport-inner__water-mark').data('reg','single');
@@ -71,10 +75,12 @@ function changeModeModul() {
 
     waterMarkWrapper.data('reg',"tile");
     waterMarkImg = $('.viewport-inner__water-mark img:first-child');
-    var cssMarginBottom = parseInt(waterMarkImg.css('margin-bottom')),
-        cssMarginRight = parseInt(waterMarkImg.css('margin-right'));
+
     waterMarkWrapper.draggable({
       drag: function(event, ui) {
+            var cssMarginBottom = parseInt(waterMarkImg.css('margin-bottom')),
+                cssMarginRight = parseInt(waterMarkImg.css('margin-right'));
+                
           ui.position.top = Math.max($('.view-port-inner__wrapper').height()-waterMarkWrapper.height(), Math.min(ui.position.top, cssMarginBottom) );
           ui.position.left = Math.max($('.view-port-inner__wrapper').width()-waterMarkWrapper.width(), Math.min(ui.position.left, cssMarginRight) );
 

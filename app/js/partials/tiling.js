@@ -14,8 +14,8 @@ function init() {
       widthViewMap =  $('.settings-position-map-pattern-horizontal'),
       countWidth = Math.ceil(wrapperWidth / watermarkWidth),
       countHeight = Math.ceil(wrapperHeight / watermarkHeight),
-      maxGutterX = wrapperWidth - watermarkWidth,
-      maxGutterY = wrapperHeight - watermarkHeight,
+      maxGutterX = wrapperWidth - 1,
+      maxGutterY = wrapperHeight - 1,
       i = 0,
       j = 0;
 
@@ -33,7 +33,7 @@ function init() {
     min: 0,
     max: maxGutterX,
     spin: function(event, ui) {
-      watermarkWrapper.width((countWidth+1) * (watermarkWidth + ui.value));
+      watermarkWrapper.width((countWidth+1) * (watermarkWidth + ui.value)+2);
     heightViewMap.css('width', ui.value);
     $('.viewport-inner__water-mark-image').css({'margin-right': ui.value})
   }
@@ -43,8 +43,9 @@ indicatorX.spinner( "value", 15 );
 indicatorY.spinner( "value", 15 );
 
   function createTiling() {
-    watermarkWrapper.width((countWidth+1) * (watermarkWidth + indicatorX.spinner('value') ));
+    watermarkWrapper.width((countWidth+1) * (watermarkWidth + indicatorX.spinner('value') +2));
     watermarkWrapper.height((countHeight+1) * (watermarkHeight + indicatorY.spinner('value') ));
+
     var fragment = document.createDocumentFragment();    
 
     for(i=0, j = (countWidth+1) * (countHeight+1) ; i < j; i++) {
